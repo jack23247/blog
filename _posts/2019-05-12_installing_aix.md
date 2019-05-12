@@ -1,3 +1,15 @@
+---
+title: "Installing AIX 4.3.3 on a 7248-100"
+date: 2019-05-12T23:13:00+01:00
+categories:
+	- sysadm
+tags:
+	- retrocomputing
+	- unix
+	- aix
+	- ibm
+---
+
 # Installing AIX 4.3.3 on a 7248-100
 
 The IBM RS/6000 43P Model 100 (7248-100) is an entry-level workstation made by IBM in circa 1996. My machine has 96MB of RAM, 2x2GB SCSI disks and a 100MHz PowerPC processor. It came with AIX 4.1.5 and Windows NT 4.0 Workstation installed. The latest AIX revision it can run is 4.3.3, which is available on the net.
@@ -15,8 +27,6 @@ AIX 4.3.3 has been preserved and installation images are downloadable from [WinW
 ## Booting the machine
 
 The 7248-100 is a PReP machine, so it does not have the nice OpenFirmware ROM like CHRPs. To interact with the Firmware while booting you can press one of the function keys *before the last icon displays*. Please note that you should have an SMS Disk suitable for your machine if you intend to change the configuration and perform tests. Here is a summary of the boot options:
-
-
 
 | Key  | SMS Disk Required | Function                     |
 | ---- | ----------------- | ---------------------------- |
