@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: /tmp/syslog
+title: cat /tmp/syslog
 email:
 description: >- # this means to ignore newlines until "baseurl:"
   jack23247's blog
@@ -29,7 +29,7 @@ remote_theme: mmistakes/minimal-mistakes
 permalink: /:categories/:title/
 paginate: 5 # amount of posts to show
 paginate_path: /page:num/
-timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: IT # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 include:
   - _pages
@@ -57,8 +57,8 @@ plugins:
 
 author:
   name   : "jack23247"
-  avatar : "/assets/images/bio-photo.jpg"
-  bio    : "CompSci student @ UniMiB, Computer collector"
+  avatar : "/assets/images/propic.png"
+  bio    : "CompSci student @ UniMiB, *nix aficionado"
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
