@@ -2,13 +2,15 @@
 title: "Installing AIX 4.3.3 on an IBM RS/6000 43P Model 100 (7248-100)"
 date: 2019-05-12T23:13:00+01:00
 categories:
-	- sysadm
+ - sysadm
 tags:
-	- retrocomputing
-	- unix
-	- aix
-	- ibm
+ - retrocomputing
+ - unix
+ - aix
+ - ibm
 ---
+
+![aix](assets/images/aix.png)
 
 The IBM RS/6000 43P Model 100 (7248-100) is an entry-level workstation made by IBM in circa 1996. My machine has 96MB of RAM, 2x2GB SCSI disks and a 100MHz PowerPC processor. It came with AIX 4.1.5 and Windows NT 4.0 Workstation installed. The latest AIX revision it can run is 4.3.3, which is available on the net.
 
@@ -66,8 +68,8 @@ System Management and Information Tool, or `smit`, is an attempt by IBM to make 
 To use SMIT you should start it up as root, either specifying nothing or a menu name. For example, assuming you're using the command line:
 
 ```shell
-smitty			# brings up the main menu
-smitty mktcpip	# brings up the TCP/IP configuration dialog	
+smitty          # brings up the main menu
+smitty mktcpip  # brings up the TCP/IP configuration dialog 
 ```
 
 > There is absolutely no difference in `smit` and `smitty`'s synopsis.
