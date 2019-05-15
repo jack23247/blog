@@ -10,6 +10,8 @@ tags:
  - hyperv
 ---
 
+> Update: OmniOS works perfectly on Hyper-V but somehow **needs two or more VCPUS to boot**, see (https://github.com/omniosorg/illumos-omnios/issues/459
+
 OmniOS Community Edition is a Unix distribution based on Illumos, the modern and open OpenSolaris based kernel. OmniOS is blazingly fast and packs a lot of features but, most importantly, it supports a wide range of hypervisors, [including Hyper-V](<https://github.com/omniosorg/omnios-build/blob/r151030/doc/ReleaseNotes.md>).
 
 To try OmniOS out, i created a Gen2 VM on Hyper-V and attempted to install the operating system. Upon booting it drops me to a nice boot menu. If i try booting the installer though, it hangs while loading the kernel with this message:
