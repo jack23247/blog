@@ -52,7 +52,7 @@ Let's see what Microsoft has to say about this:
 >
 > *[Microsoft Docs](<https://docs.microsoft.com/en-us/windows-server/virtualization/hyper-v/best-practices-for-running-linux-on-hyper-v>)*
 
-More than a *"wild guess"*, it's an *"unsupported guess"*: looks like we won't be able to use Gen2 virtual machines, let's try and switch to Gen1.
+More than a *rough guess*, it's an *unsupported guess*: looks like we won't be able to use Gen2 virtual machines, let's try and switch to Gen1.
 
 Upon switching to a Gen1, or *legacy*, virtual machine, I tried to boot into the OS once more. This time the problem is more subtle and way less informative:
 
@@ -74,8 +74,7 @@ do_cpuid: cpuid leaf=0x40000001, eax=0x31237648, ebx=0x00000000, ecx=0x00000000,
 do_cpuid: cpuid leaf=0x40000003, eax=0x00002e7f, ebx=0x003880b0, ecx=0x00000002, edx=0x0Obed7b2
 do_cpuid: cpuid leaf=0x40000002, eax=0x000047a7, ebx=0x000a0000, ecx=0x00000000, edx=0x00000001
 Hyper-V Version: 10.0.18343 [SP0]
-Features=0x2e7f<VPRUNTIME,TMREFCHT,SYNIC,SYHTM,RPIC,HYPERCRLL,VPINDEX,REFTSC,
-IDLE,TMFREQ> 
+Features=0x2e7f<VPRUNTIME,TMREFCHT,SYNIC,SYHTM,RPIC,HYPERCRLL,VPINDEX,REFTSC,IDLE,TMFREQ> 
   Features1=0x3880b0<PostMessages,SignalEvents>
   Features2[PM]=0x0 [C2]  
   Features3=0xbed7b2<DEBUG,XMMHC,IDLE,HUMR,TMFREQ,SYNCMC,CRRSH,HPIEP>
