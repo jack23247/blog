@@ -156,7 +156,7 @@ You can add system software via either SMIT or the toolbox application. System s
 - [Collection of useful AIX commands](http://stromberg.dnsalias.org/~strombrg/Useful-AIX-commands.html)
 - [AIX free software archive](http://www.bullfreeware.com/index2.php?page=lpp)
 
- ## To Sum Up
+## To Sum Up
 
 AIX is quite a strange *nix system, yet it's fun to use. The numerous differences make it a fun diversion even from classic SysV unices like Solaris and HP-UX
 
