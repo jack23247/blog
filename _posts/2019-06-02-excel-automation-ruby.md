@@ -12,8 +12,6 @@ tags:
  - windows
 ---
 
-# From Excel to automation with Ruby
-
 ## The case
 
 For the last few days I've been working in tech support for a large company: I've been hired to assist in backing up, mastering and restoring a couple of computers. As I pointed out the need to automate some trivial tasks, our manager gave us an Excel sheet containing data about the machines we need to work on. 
