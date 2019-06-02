@@ -57,7 +57,7 @@ plugins:
 
 author:
   name   : "jack23247"
-  avatar : "/assets/images/propic.png"
+  avatar : "/assets/images/avatar/ilstn_3.png"
   bio    : "CompSci student @ UniMiB, *nix aficionado"
   links:
     - label: "GitHub"
