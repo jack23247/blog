@@ -12,13 +12,11 @@ tags:
  - windows
 ---
 
-## The case
-
 For the last few days I've been working in tech support for a large company: I've been hired to assist in backing up, mastering and restoring a couple of computers. As I pointed out the need to automate some trivial tasks, our manager gave us an Excel sheet containing data about the machines we need to work on. 
 
 ## The Excel sheet
 
-I obtained an Excel file containing four columns, and organized like this:
+I was given an Excel file containing four columns, and organized like this:
 
 | NAME  | SURNAME | OLD HOSTNAME  | NEW HOSTNAME  |
 | ----- | ------- | ------------- | ------------- |
@@ -28,7 +26,7 @@ I obtained an Excel file containing four columns, and organized like this:
 
 And I needed some tedious Batch code to match the old hostname with the new one and link them with the names, to efficiently name backup folders. I could have manually copied the data, except that the table was more than 80 rows long!
 
- ## The solution
+## The solution
 
 By looking at Microsoft Excel, however pretty it may be, I wasn't going anywhere: I needed to get the data in an usable format. What about exporting it in CSV?
 
