@@ -190,7 +190,7 @@ File.open('csvlut.bat', 'w') do |out|
 	input.each do |row|
 		key = row[key_index]
         unless key_blacklist.include?(key)
-			out.puts "IF %COMPUTERNAME%==#{row[2]} SET %BACKUPNAME%=#{row[1].upcase}.#{row[0].upcase}_#{row[3]}" 
+			out.puts "IF %COMPUTERNAME%==#{row[2]} SET BACKUPNAME=#{row[1].upcase}.#{row[0].upcase}_#{row[3]}" 
 		end
 	end	
 end
@@ -201,8 +201,8 @@ In case code's not clear enough, I told the script to open a file in write mode,
 ```
 $ ./csv2bat.rb
 $ cat csvlut.bat
-IF %COMPUTERNAME%==DOOM001 SET %BACKUPNAME%=CARMACK.JOHN_QUAKE001
-IF %COMPUTERNAME%==DOOM002 SET %BACKUPNAME%=ROMERO.JOHN_QUAKE002
+IF %COMPUTERNAME%==DOOM001 SET BACKUPNAME=CARMACK.JOHN_QUAKE001
+IF %COMPUTERNAME%==DOOM002 SET BACKUPNAME=ROMERO.JOHN_QUAKE002
 ```
 
 ## Wrapping up
