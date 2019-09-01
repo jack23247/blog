@@ -78,7 +78,7 @@ tmpfs                    94.3M    104.0K     94.2M   0% /run
 df: /sys/kernel/debug/tracing: Permission denied
 /dev/sda1                92.8M     17.5M     68.3M  20% /boot
 ```
-![Not great, not terrible](..\assets\images\dyatlov.jpg)
+![Not great, not terrible](https://raw.githubusercontent.com/jack23247/blog/master/assets/images/dyatlov.jpg)
 
 Let's whip up some `apk` magic: 
 ```

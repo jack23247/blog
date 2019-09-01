@@ -57,8 +57,8 @@ plugins:
 
 author:
   name   : "jack23247"
-  avatar : "/assets/images/avatar/panel.jpg"
-  bio    : "CompSci student @ UniMiB, *nix aficionado"
+  avatar : "/assets/images/avatar/gufo.png"
+  bio    : "CompSci student @ UniMiB, #retrocollective"
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
