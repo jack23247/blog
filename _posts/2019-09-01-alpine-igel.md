@@ -10,9 +10,7 @@ tags:
  - updates
 ---
 
-## Introduction
-
-Hey blog, long time no see! I've started working part-time in the IT support field and things kind of got in the way: I have an article on rebuilding an AS400's RAID-5 ASP without damaging it underway but I've never been able to finish it. 
+Hey blog, long time no see! Since I've started working things kind of got in the way: I have an article on *Rebuilding an AS400 ASP on an inprotected RAID-5 array without damaging it* underway but I've never been able to finish it. 
 
 Good thing about work is that they were throwing away some old dusty boxes and I've been able to pickup a couple of things, including three IGEL D210 thin clients. These folks have [incredible specs](https://www.parkytowers.me.uk/thin/Igel/ud/ud2/D210/) and run Linux out of the box. After attempting to install various versions of Windows for *lulz*, I've settled on building a small Alpine Linux box I could use as a microserver. 
 
