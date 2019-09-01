@@ -1,6 +1,6 @@
 ---
 title: "Thin client tales: installing Alpine on an IGEL D210"
-date: 2019-09-01T21:52:00+01:00
+date: 2019-09-01T22:46:00+01:00
 categories:
  - sysadm
 tags:
@@ -48,25 +48,20 @@ I rebooted and re-ran the setup to clean everything up, just this time I hit `Ct
 
 ## Post-install
 
-All's good! Let's set up a user and get `ssh` access...
-
-```shell
-adduser -m /home/quartz quartz
-```
-
-On the Windows system:
+All's good! Let's set up a user, install `sudo` to work more comfortably and connect through `ssh`...
 
 ```
-ssh 192.168.137.11
+# adduser -m /home/quartz quartz
+# apk add sudo
+# addgroup quartz wheel
+```
+Now, using `visudo`, uncomment line 82 (remove the `#` from `# %wheel ALL=(ALL) ALL`) to get users in the group wheel `sudo` access. Now we can say goodbye to our physical console:
+
+```
+C:\> ssh 192.168.137.11
 ```
 
-And we're in! To set up `sudo`, we must obtain superuser access with `su` and run `apk add sudo`. Using `visudo`, uncomment line 82 (`%wheel ALL=(ALL) ALL`) to get users in the group wheel `sudo` access:
-
-```shell
-addgroup quartz wheel
-```
-
-After some `/etc/profile` customization, let's see disk usage:
+And we're in! After some `/etc/profile` customization, let's see disk usage:
 
 ```
 $ df -h
@@ -89,8 +84,6 @@ linux-firmware-20190322-r1 x86 {linux-firmware} (custom:multiple) [installed]
 linux-firmware-rtl8192e-20190322-r1 x86 {linux-firmware} (custom:multiple) [installed]
 linux-firmware-ene-ub6250-20190322-r1 x86 {linux-firmware} (custom:multiple) [installed]
 linux-firmware-edgeport-20190322-r1 x86 {linux-firmware} (custom:multiple) [installed]
-json-c-0.13.1-r0 x86 {json-c} (MIT) [installed]
-linux-firmware-bnx2-20190322-r1 x86 {linux-firmware} (custom:multiple) [installed]
 <...>
 ``` 
 I've cut down on the list a bit: basically, this means that we have a lot of `linux-firmware` stuff installed. We don't need those packages, do we? Let's remove them at once:
@@ -100,9 +93,6 @@ World updated, but the following packages are not removed due to:
   linux-firmware-av7110: linux-firmware linux-vanilla
   linux-firmware-rtl8192e: linux-firmware linux-vanilla
   linux-firmware-ene-ub6250: linux-firmware linux-vanilla
-  linux-firmware-edgeport: linux-firmware linux-vanilla
-  linux-firmware-bnx2: linux-firmware linux-vanilla
-  linux-firmware-mwlwifi: linux-firmware linux-vanilla
 <...>
 ```
 
