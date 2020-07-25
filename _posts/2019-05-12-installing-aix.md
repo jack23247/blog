@@ -10,7 +10,7 @@ tags:
  - ibm
 ---
 
-![aix](https://raw.githubusercontent.com/jack23247/blog/master/assets/images/aix.png)
+![aix](https://raw.githubusercontent.com/jack23247/blog/master/img/aix.png)
 
 The IBM RS/6000 43P Model 100 (7248-100) is an entry-level workstation made by IBM in circa 1996. My machine has 96MB of RAM, 2x2GB SCSI disks and a 100MHz PowerPC processor. It came with AIX 4.1.5 and Windows NT 4.0 Workstation installed. The latest AIX revision it can run is 4.3.3, which is available on the net.
 

@@ -61,17 +61,17 @@ What did I learn from this experience, then? That assembly is still the best. /s
 
 I've always had an itch for large systems: I've experimented countless times with Hercules, running either VM/CMS or MVS and dreamt about owning an IBM Mainframe. As much as I love the S/390s, I found myself more and more intrested in "Application System/400"s: I'm now the proud owner of two 400e Model 150s and a 400e Model 270. Sadly one of the 150s is a parts-only machine I got for free, and I'm afraid of turning on the 270 because of a disk problem (one disk broke so the RAID-5 is unprotected and I have no install media) which could render it a quite sexy brick.
 
-![COBOL/ILE Test](https://raw.githubusercontent.com/jack23247/blog/master/assets/images/pub400_cbllesrc_test.png)
+![COBOL/ILE Test](https://raw.githubusercontent.com/jack23247/blog/master/img/pub400_cbllesrc_test.png)
 *I eventually did it*
 
 With the recent [rise](https://www.theverge.com/2020/4/14/21219561/coronavirus-pandemic-unemployment-systems-cobol-legacy-software-infrastructure) in COBOL programming needs, I thought I'd dust off my InfoWindow and start poking at the 400, to see if I could at least get my Hello World printed. Since the working 150 has no software installed at all, apart for the base system (which considering that OS/400 with ILE runtimes and DB/400 came preinstalled free-of-charge on the 150 it's one hell of a deal), if I wanted to dip my toes into mainframe-class business programming I had to put the literal green screen back in storage and find another way.
 
 Suddenly it came to me that, while learning about how to start-up my 400s, I signed up for a free account on [PUB400.com](https://www.pub400.com/), which offers a free <del>OS/400</del> <del>i5/OS</del> IBM i learning environment.
 
-![IBM i Main Screen](https://raw.githubusercontent.com/jack23247/blog/master/assets/images/pub400_main.png)
+![IBM i Main Screen](https://raw.githubusercontent.com/jack23247/blog/master/img/pub400_main.png)
 *The IBM i Main Screen*
 
-<!--https://raw.githubusercontent.com/jack23247/blog/master/assets/images/-->
+<!--https://raw.githubusercontent.com/jack23247/blog/master/img/-->
 
 Why should one use such an environment?<br>
 Because 400s are a fine piece of work and having a free playground is awesome.
@@ -113,7 +113,7 @@ As far as programming goes, you have a nice REXX interpreter available and ILE, 
 
 All of the development work is done via the Program Development Manager (PDM) and Source Entry Utility (SEU) combo, accessed via `STRPDM` and `STRSEU` commands, which I'll let you find the meaning for on your own, it's easy enough. PDM is basically a collection of menus that automate tasks like building and linking programs, and SEU is an XEDIT-like editor with advanced features. The downside is that PDM, SEU and the ILE development environment are an optional feature, as they're basically needed only on development boxes.
 
-![he SEU Editor](https://raw.githubusercontent.com/jack23247/blog/master/assets/images/pub400_seu_cobol.png)
+![he SEU Editor](https://raw.githubusercontent.com/jack23247/blog/master/img/pub400_seu_cobol.png)
 *The SEU Editor*
 
 Why did I tell you this much? To hopefully lower the entry barrier and let you at least think about trying OS/400. I could go on and on forever telling you about TIMI, the unique front panel codes, the flat memory space and object-oriented filesystem, about why the 400s are both fast on modest hardware and secure by design, and about the tight integration between hardware and software but I won't. This is what everyone keeps overstating about these systems and it's not that important for someone who just wants to give it a try. Besides I'm not qualified enough to do so, even if I intended to.
@@ -128,7 +128,7 @@ I've been tinkering with my ThinkPad 380D for quite a while: it's a bulky and so
 
 "Darn it", I thought, "let's look for a recovery disk."
 
-![he SEU Editor](https://raw.githubusercontent.com/jack23247/blog/master/assets/images/380d_recovery.png)
+![he SEU Editor](https://raw.githubusercontent.com/jack23247/blog/master/img/380d_recovery.png)
 *Yes IBM HelpWare (R)PC Support Line, it's a new PC... I mean, I've never had one before*
 
 And [there](https://archive.org/details/thinkpad380rec) it was: ready to be restored on this absolute unit of a laptop. The recovery disk works just fine, I just needed to dig out a Windows 95 OEM license from the og software closet: it even comes with old-school ThinkPad themes and ads! After waiting an eternity for the `1e-5`x CD-ROM drive (which is **not** bootable, btw) to finish reading the newly-pressed media, it was time to witness the glory of a machine cool enough to be used as an IBM System/390 Support Element. If only S/390s used ThiccPads as SEs instead of clunky beige IBM Personal Computer 750 boxes, which are quite sexy nonetheless.

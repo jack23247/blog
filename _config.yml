@@ -57,7 +57,7 @@ plugins:
 
 author:
   name   : "jack23247"
-  avatar : "/assets/images/avatar/gem-floppy-modern.png"
+  avatar : "/me.png"
   bio    : "Computer Science student @ Università degli Studi di Milano-Bicocca"
   links:
     - label: "GitHub"
