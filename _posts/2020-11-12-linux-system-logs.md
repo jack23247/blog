@@ -29,13 +29,13 @@ Logs are kept in `\var\log`, here's some notable examples:
 | `kern.log` | A specific log for kernel events                             |
 | `syslog`   | A global system log that records virtually everything        |
 
-`kern.log` 
+Let's try and analyze all of them.
 
 ### `boot.log`
 
 The several copies of `boot.log` kept here represent an exact copy of the boot console messages, plus some timestamping. They're useful to determine the root cause of a boot problem, be it a delay or hanging before reaching the multiuser target (in case we're running `systemd`) or the login prompt.
 
-<img src="img/case_of_systemd.jpg.jpg" alt="incaseofsystemd" style="zoom:75%;" />
+<img src="https://raw.githubusercontent.com/jack23247/blog/master/img/case_of_systemd.jpg" alt="incaseofsystemd" style="zoom:75%;" />
 
 Here's an excerpt from my `boot.log.1`:
 
@@ -183,4 +183,4 @@ As always the Linux operating system offers advanced facilities for users, admin
 
 ## Sources
 
-https://www.plesk.com/blog/featured/linux-logs-explained/ makes a great attempt at explaining this same, very interesting, topic.
+[https://www.plesk.com/blog/featured/linux-logs-explained/](https://www.plesk.com/blog/featured/linux-logs-explained/) makes a great attempt at explaining this same, very interesting, topic.
