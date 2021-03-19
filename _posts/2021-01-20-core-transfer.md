@@ -44,10 +44,11 @@ There is exactly one loophole in this whole licensing ordeal: the AS/400 9401 mo
 
 After getting *The Ugly* from a friend about ten months ago, I've never really done anything with it besides finding out that it fails to IPL with an MFIOP error (I think the tape drive is electrically dead or something), but being unable to test it further I've always wondered what resided on the ASP (the disk pool). Afraid to kill *The Good* by fiddling around too much, I've never attempted to recover the disks and they basically sat there unused as "spares", just in case I'd need them. 
 
-<figure>
-  <img src="https://raw.githubusercontent.com/jack23247/blog/master/img/dummy_sys.jpg" alt="dummy_sys"/>
-  <figcaption>Remember: this could happen if you IPL the wrong thing</figcaption>
-</figure>
+<p>
+<img src="https://raw.githubusercontent.com/jack23247/blog/master/img/dummy_sys.jpg" alt="dummy_sys" style="zoom:75%;" />
+<br><i>Remember: this could happen if you IPL the wrong thing</i>
+</p>
+
 
 Today this changed: after having a talk with the aforementioned great guys on Discord I've decided to try a risky procedure: swap *The Good*'s good DASDs (let's call them "core" from now on, although it's definitely NOT IBM lingo) with *The Ugly*'s mysterious one. The concern was that my good core could be crippled as the MFIOP would "forget" the drive ordering and mix the disks up upon the next IPL.
 
@@ -60,10 +61,10 @@ Today this changed: after having a talk with the aforementioned great guys on Di
 >
 > Since the Load Source is fundamental, and the ASP geometry data resides there, reordering the disks can be catastrophic, hence why we were concerned about the swap.
 
-<figure>
-  <img src="https://raw.githubusercontent.com/jack23247/blog/master/img/the_cores.jpg" alt="the_cores" style="zoom:50%;" />
-  <figcaption>The cores</figcaption>
-</figure>
+<p>
+<img src="https://raw.githubusercontent.com/jack23247/blog/master/img/the_cores.jpg" alt="the_cores" style="zoom:50%;" />
+<br><i>The cores</i>
+</p>
 
 
 I ignored the danger, knowing very well that the V4R5 installation on *The Good*'s core is extremely uninteresting and that I'm going to reinstall it afresh for sure someday (remember, media is enough on a 150), I decided to give it a go and swap the cores.
@@ -98,11 +99,10 @@ Or so I thought: the IPL proceeded at a snail's pace, as the system was probably
 
 **YES! The swap trick works!** I could (thankfully) login with the default `QSECOFR` password (which is `QSECOFR`, imagine if all Linux boxes came with `root`/`root`) and play around a bit. It seems like the machine had been used as an RPG box to port an older application from a System/36 to the integrated SSP environment on OS/400, while having a somewhat sketchy `192.168.0.1` IP assigned to it. 
 
-<figure>
+<p>
 <img src="https://raw.githubusercontent.com/jack23247/blog/master/img/the_good_and_cores.jpg" alt="the_good_and_cores" style="zoom: 50%;" />
-  <figcaption><i>The Good</i> with the cores</figcaption>
-</figure>
-
+<br><i>The Good with the cores</i>
+</p>
 
 
 After playing around with it for a while, I wanted to see if the swap trick would be reversible or not and, long story short, indeed it was! I can't state how refreshing it is to turn the machine I was afraid to boot because "I could damage drives" in a very flexible test lab for weird DASD configs.
