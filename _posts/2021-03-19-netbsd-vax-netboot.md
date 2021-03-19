@@ -24,7 +24,10 @@ So, after an insanely long time, I did it. Here are my notes:
 
 Booting the VAXen from network is easy enough, since they were designed to be able to run entirely diskless in clusters, but it's not as straightforward as, say, launching `tftpd` and calling it a day. A lot of things can go wrong, the MOP protocol is quite picky, and not being used to this stuff in general can make it look daunting. The first time I tried, I used a laptop: I spent the entire day looking at wireshark and talking to people who did this before me, and after messing it  up several times I succeeded. Too bad I was so busy I didn't take any notes, so to migrate everything to Edmonton, the new NFS host, I wasted the best part of an afternoon (correction: two afternoons).
 
-<!-- bad boy vups -->
+<figure>
+<img src="https://raw.githubusercontent.com/jack23247/blog/master/img/vupsmeme.png" alt="vupsmeme" style="zoom: 50%;" />
+  <figcaption>Oh yeah you bet</figcaption>
+</figure>
 
 Oh well, at least I took notes this time.
 
@@ -362,7 +365,10 @@ The last thing we have to do before being able to netboot is creating the client
 
 #### First boot and on-line configuration
 
-<!-- find not found -->
+<figure>
+<img src="https://raw.githubusercontent.com/jack23247/blog/master/img/find_not_found.png" alt="find_not_found" style="zoom: 100%;" />
+  <figcaption>Today in a nutshell</figcaption>
+</figure>
 
 If everything went well, you should see something like this:
 
