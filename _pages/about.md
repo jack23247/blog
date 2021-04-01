@@ -3,17 +3,37 @@ permalink: /about/
 title: "About"
 ---
 
-In no particular order:
+CS student @ Università degli Studi di Milano-Bicocca
 
-- I drive a 1991 Renault 4 TL called Carlotta
-- I collect old, dirty and usless computers
-  - Sometimes I collect cameras, some model cars and game consoles
-    - I also like to keep old books, manuals and software around
-      - I can't resist shiny rocks, houseplants, old furniture, classic cars...
-- I study CS in Milan, Italy
-- I'd love to be a kernel developer and I'm getting quite fond of real-time systems
-- I've been a designer and writer in my high school days
-  - I've worked on newspapers, brochures, short movies, short plays...
-- I have a black and white cat with no tail
+Does:
+- System administration, networking
+- Linux development, real-time systems development
 
-Now that you know more about me, do you feel *fulfilled*?
+Uses:
+- Linux, Windows, Solaris, OS/400, various *nixes, DOS
+- C, Ruby, Bash, Prolog, Assembly (MIPS and RISC in general), OS/400 CL
+ 
+Drives:
+- 1991 Renault 4 TL "Carlotta" 
+
+Collects:
+- Old, dirty and broken computers
+- Analog and digital cameras, model cars, game consoles
+- Antique books, manuals, software
+- Rocks, seashells, houseplants, antique furniture, classic cars, retro household appliances
+- Comics, fonts, headphones
+
+`$old_jobs`:
+- Graphics designer for newspapers and some brochures 
+- Writer for local newspaper, short movies, short plays
+
+Wishlist:
+- A small boat
+- An HP C8000
+- An AlphaServer ES47 in a deskside cabinet
+- An Itanium machine (like a Zx6000)
+- A Sun Ultra 45
+- An SGI machine to run some IRIX
+- A DEC PMAX machine
+- A NEC SX-8i or SX-Ace (we're moving into unobtaniumland here)
+- A System/390 Multiprise 3000 (because why not)
