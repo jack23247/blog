@@ -10,9 +10,7 @@ tags:
  - updates
 ---
 
-Hey blog, long time no see! Since I've started working things kind of got in the way: I have an article on *Rebuilding an AS400 ASP on an inprotected RAID-5 array without damaging it* underway but I've never been able to finish it. 
-
-Good thing about work is that they were throwing away some old dusty boxes and I've been able to pickup a couple of things, including three IGEL D210 thin clients. These folks have [incredible specs](https://www.parkytowers.me.uk/thin/Igel/ud/ud2/D210/) and run Linux out of the box. After attempting to install various versions of Windows for *lulz*, I've settled on building a small Alpine Linux box I could use as a microserver. 
+Some time ago, the warehouse manager at work came to me, knowing well that I collect junk, carrying three unassuming cardboard boxes: "Do you want these?" "Yes.", I answered straight away: thus, I was now in possession of a couple IGEL D210 thin clients which have [incredible specs](https://www.parkytowers.me.uk/thin/Igel/ud/ud2/D210/) and run Linux out of the box. After attempting to install various versions of Windows for *lulz*, I've settled on building a small Alpine Linux box I could use as a microserver. 
 
 I'm using my Windows laptop to get internet access, as I use 4G in the apartment and my tethering-enabled router is still *en-route* from Amazon. That was terrible, I know.
 
@@ -85,7 +83,7 @@ linux-firmware-rtl8192e-20190322-r1 x86 {linux-firmware} (custom:multiple) [inst
 linux-firmware-ene-ub6250-20190322-r1 x86 {linux-firmware} (custom:multiple) [installed]
 linux-firmware-edgeport-20190322-r1 x86 {linux-firmware} (custom:multiple) [installed]
 <...>
-``` 
+```
 I've cut down on the list a bit: basically, this means that we have a lot of `linux-firmware` stuff installed. We don't need those packages, do we? Let's remove them at once:
 ```
 $ sudo apk del linux-firmware-*

@@ -56,13 +56,18 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "jack23247"
-  avatar : "/me.png"
-  bio    : "Computer Science student @ Università degli Studi di Milano-Bicocca"
+  name		: "jack23247"
+  avatar	: "/me.png"
+  bio    	: "Computer Science student @ Università degli Studi di Milano-Bicocca"
+  location	: "Milano, Italy"
+  uri		: "http://www.jack23247.tk"
+  home		: "http://www.jack23247.tk"
+  #email		: ""
+
   links:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url: "https://github.com/"
+      url: "https://github.com/jack23247"
 
 footer:
   links:

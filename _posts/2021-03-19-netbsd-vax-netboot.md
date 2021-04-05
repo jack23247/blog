@@ -104,7 +104,7 @@ Ethernet adapter
 -ESA0 (08-00-2B-0F-CA-8C)
 ```
 
-Be sure to jot down the MACWhich address, because we'll need it to boot the system. It's time to download the MOP loader: I've chosen to use NetBSD 1.6.2 because it's the last 1.x release and it's fairly quick.
+Be sure to jot down the MAC address, because we'll need it to boot the system. It's time to download the MOP loader: I've chosen to use NetBSD 1.5.3 because it's the last 1.x release to include a MOP loader (which could be used with later versions as well) and it's not too heavy.
 
 ```
 edmonton$ wget http://archive.netbsd.org/pub/NetBSD-archive/NetBSD-1.5.3/vax/installation/netboot/boot.mop
@@ -598,7 +598,7 @@ syncing disks... 2 2 done
 
 In this specific order:
 
-- https://github.com/dreamlayers/netbsd-mopd
-- http://www.netbsd.org/docs/network/netboot/intro.vax.html
-- https://github.com/qu1j0t3/mopd/blob/master/HOWTO-MicroVAX-II.md
-- https://askubuntu.com/questions/974696/how-can-i-make-the-nfs-server-support-protocol-version-2-in-ubuntu-17-10
+- [https://github.com/dreamlayers/netbsd-mopd](https://github.com/dreamlayers/netbsd-mopd)
+- [http://www.netbsd.org/docs/network/netboot/intro.vax.html](http://www.netbsd.org/docs/network/netboot/intro.vax.html)
+- [https://github.com/qu1j0t3/mopd/blob/master/HOWTO-MicroVAX-II.md](https://github.com/qu1j0t3/mopd/blob/master/HOWTO-MicroVAX-II.md)
+- [https://askubuntu.com/questions/974696/how-can-i-make-the-nfs-server-support-protocol-version-2-in-ubuntu-17-10](https://askubuntu.com/questions/974696/how-can-i-make-the-nfs-server-support-protocol-version-2-in-ubuntu-17-10)
