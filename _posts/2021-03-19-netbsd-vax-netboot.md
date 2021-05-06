@@ -269,6 +269,42 @@ exportfs: /export/client/swap is not a directory. Remote access will fail
 
 The complaint can be safely ignored as we are indeed exporting the swap file and we have no intention to access it directly.
 
+> [2020-05-07:jack23247](mltjcp64+blog@gmail.com) While we ignore the issue, systemd **won't**: if you don't edit the unit file, the `nfs-kernel-server` service will fail miserably. Do the following:
+>
+> ```
+> edmonton# systemctl edit --full nfs-kernel-server.service
+> ```
+>
+> And prepend a `-` to all the lines pertaining to `exportfs`,  making sure that they look like this:
+>
+> ```
+> ExecStartPre=-/usr/sbin/exportfs -r
+> ExecStopPost=-/usr/sbin/exportfs -au
+> ExecStopPost=-/usr/sbin/exportfs -f
+> ExecReload=-/usr/sbin/exportfs -r
+> ```
+>
+> This tells `systemd` to ignore the non-zero exit code of `exportfs` while starting the service, thus rendering `nfs-kernel-server` usable, see [https://man7.org/linux/man-pages/man5/systemd.service.5.html](https://man7.org/linux/man-pages/man5/systemd.service.5.html) for more details.
+>
+> Now you can restart the NFS server and look at the status:
+>
+> ```
+> edmonton# service nfs-kernel-server restart 
+> edmonton# service nfs-kernel-server status 
+> ● nfs-server.service - NFS server and services
+>    Loaded: loaded (/etc/systemd/system/nfs-server.service; enabled; vendor preset: enabled)
+>    Active: active (exited) since Fri 2021-05-07 00:14:32 CEST; 3s ago
+>   Process: 1839 ExecStartPre=/usr/sbin/exportfs -r (code=exited, status=1/FAILURE)
+>   Process: 1840 ExecStart=/usr/sbin/rpc.nfsd $RPCNFSDARGS (code=exited, status=0/SUCCESS)
+>  Main PID: 1840 (code=exited, status=0/SUCCESS)
+> 
+> mag 07 00:14:31 edmonton systemd[1]: Starting NFS server and services...
+> mag 07 00:14:31 edmonton exportfs[1839]: exportfs: /export/client/swap is not a directory. Remote access will fail
+> mag 07 00:14:32 edmonton systemd[1]: Started NFS server and services.
+> ```
+>
+> As you can see, the server is active even if `ExecStartPre` reports a failure (which is just the `Remote access will fail` warning), unlike it was before.
+
 > If you're using most recent Linux distributions, NFSv2 will be disabled by default for security reasons. If your VAX cannot boot and complains about a `callrpc: error = 2`, add the following line to `/etc/default/nfs-kernel-server`:
 >
 > ```
