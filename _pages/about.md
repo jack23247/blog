@@ -12,7 +12,7 @@ Does:
 Uses:
 - Linux, Windows, Solaris, OS/400, various *nixes, DOS
 - C, Ruby, Bash, Prolog, Assembly (MIPS and RISC in general), OS/400 CL
- 
+
 Drives:
 - 1991 Renault 4 TL "Carlotta" 
 
@@ -30,10 +30,11 @@ Collects:
 Wishlist:
 - A small boat
 - An HP C8000
-- An AlphaServer ES47 in a deskside cabinet
-- An Itanium machine (like a Zx6000)
+- Any Itanium machine
 - A Sun Ultra 45
-- An SGI machine to run some IRIX
-- A DEC PMAX machine
-- A NEC SX-8i or SX-Ace (we're moving into unobtaniumland here)
+- An SGI O2, Octane, Fuel or Tezro
+- A NEC SX-8i or SX-6i (dreaming is free, right?)
 - A System/390 Multiprise 3000 (because why not)
+- An AlphaServer ES47 in a deskside cabinet (about `3e-25` were sold)
+- A Sharp X68000
+- A System/36 5363

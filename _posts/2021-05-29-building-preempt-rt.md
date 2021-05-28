@@ -39,7 +39,7 @@ The kernel team provides either the full, already patched, kernel sources or a p
 
 Once the archive has been unpacked, the kernel must be configured: to do so there are some tools provided by the developers that take care of modifying the appropriate makefiles automatically. First of all we must create a base configuration, pilfering it from the kernel we're currently running:
 
-````shell
+````
 $ cd ~/linux-stable-rt-5.4.74-rt41-rebase
 $ cp /boot/config-$(uname -r) .config
 $ make olddefconfig
@@ -47,15 +47,21 @@ $ make olddefconfig
 
 At this point the configuration files have been initialized and we are ready to select the preemption mechanism:
 
-```shell
+```
 $ make menuconfig
 ```
 
-![Screenshot from 2020-11-09 17-53-37](menuconfig-main.png)
+<p style="vertical-align:middle;">
+<img src="https://raw.githubusercontent.com/jack23247/blog/master/img/menuconfig-main.png" alt="menuconfig-main" style="zoom: 100%;" />
+<br><i>The colorful interface presented by <tt>menuconfig</tt></i>
+</p>
 
 `menuconfig` is an `ncurses`-based tool that lets us modify the kernel parameters so we can obtain different configurations. Many aspects of the kernel's behavior can be changed by recompiling it with different options, but let's focus specifically on the ones we need: open **General Setup** -> **Preemption Model** and select **Fully Preemptible Kernel (Real-Time) ** instead of Voluntary Kernel Preemption (Desktop). 
 
-![Screenshot from 2020-11-09 17-58-19](menuconfig-sched.png)
+<p style="vertical-align:middle;">
+<img src="https://raw.githubusercontent.com/jack23247/blog/master/img/menuconfig-sched.png" alt="menuconfig-sched" style="zoom: 100%;" />
+<br><i>Selecting the scheduling policy</i>
+</p>
 
 Using the tabulation key, navigate to the **Select** button: you'll notice that the scheduler's name has been changed. Navigate once again to the **Save** button: when prompted to select an alternate filename, simply select **Ok**. You can now quit `menuconfig`.
 
@@ -74,7 +80,7 @@ The `-j $(nproc)` argument will make optimal use of your processor's resources b
 Thanks to the `deb-pkg` target, installing the kernel is dead-simple. First of all, we can obtain a description of the packages. Issuing:
 
 ```shell
-$ for pkg in ./*.deb; do echo " Package: $pkg" && dpkg-deb --info $pkg | grep -A5 "Description" && echo ""; done
+for pkg in ./*.deb; do echo " Package: $pkg" && dpkg-deb --info $pkg | grep -A5 "Description" && echo ""; done
 ```
 
 ...yields:
@@ -105,7 +111,7 @@ $ for pkg in ./*.deb; do echo " Package: $pkg" && dpkg-deb --info $pkg | grep -A
 Now, installing them is pretty simple. You can either use `dpkg` or double-click on them and use the graphical installer. Let's assume the former:
 
 ```shell
-$ for pkg in ./*.deb; do sudo dpkg -i $pkg; done
+for pkg in ./*.deb; do sudo dpkg -i $pkg; done
 ```
 
 Will install the kernel and headers, and automatically build the appropriate `initrd` and add a new default entry for the kernel in the GRUB bootloader.
