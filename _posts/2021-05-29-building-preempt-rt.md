@@ -17,19 +17,24 @@ tags:
 >
 > The bulk of this post was written back in November 2020, when we had no idea about what we were facing, and was essentially completed in February 2021: In the end, I installed Ubuntu 20.10 on my main laptop and have been using it along with the `lowlatency` kernel as a convenient development machine, and migrated to the self-built RT kernel on the X220, abandoning ROS completely in the process.
 >
-> Of course I completely forgot to publish it and I've been holding it up until now.
+> Of course I completely forgot to publish it and I've been holding it up until now (May-June 2021).
 
-Before graduating, our university mandates that we spend at least three months working on a project, either in an university lab or in an external facility, and then prepare an extensive report of our activities. 
+Before graduating, our university mandates that we spend at least three months working on a project, either in an university lab or in an external facility, and then prepare an extensive report of our activities.
 
-I've decided to work with our Mobile Robotics lab on a project that involves ROS and the Linux Kernel, and I've been tasked with exploring the possibility of making the system behave in a real-time manner. 
+I've decided to work with our Mobile Robotics lab on a project that involves ROS and the Linux Kernel, and I've been tasked with exploring the possibility of making the system behave in a real-time manner.
 
-To do so, my first step has been installing the target operating system, Ubuntu 20.04, on my machine (a Lenovo X220) so I can work on the project from home and I decided to try and build the `PREEMPT_RT` patched kernel so I could start taking advantage of it. 
+To do so, my first step has been installing the target operating system, Ubuntu 20.04, on my machine (a Lenovo X220) so I can work on the project from home and I decided to try and build the `PREEMPT_RT` patched kernel so I could start taking advantage of it.
 
-The initial idea was pretty simple: build the kernel and write an application that uses both the scheduler and some ROS components, but I've seriously been wondering whether or not it's a good idea, because of the complexity of using `SCHED_DEADLINE`. 
+The initial idea was pretty simple: build the kernel and write an application that uses both the scheduler and some ROS components, but I've seriously been wondering whether or not it's a good idea, because of the complexity of using `SCHED_DEADLINE`.
 
 ## Building the kernel
 
-Building an RT-patched kernel is really simple, and this [great if a bit outdated article](http://kernel-notes.gbittencourt.net/compiling-preempt-rt/) outlines the process. 
+Building an RT-patched kernel is really simple, and this [great if a bit outdated article](http://kernel-notes.gbittencourt.net/compiling-preempt-rt/) outlines the process.
+
+<p style="vertical-align:middle;">
+<img src="https://raw.githubusercontent.com/jack23247/blog/master/img/for-great-justice.gif" alt="for-great-justice" style="zoom: 100%;" />
+<br><i>For great justice</i>
+</p>
 
 ### Downloading and unpacking the sources
 
@@ -39,11 +44,11 @@ The kernel team provides either the full, already patched, kernel sources or a p
 
 Once the archive has been unpacked, the kernel must be configured: to do so there are some tools provided by the developers that take care of modifying the appropriate makefiles automatically. First of all we must create a base configuration, pilfering it from the kernel we're currently running:
 
-````
+```
 $ cd ~/linux-stable-rt-5.4.74-rt41-rebase
 $ cp /boot/config-$(uname -r) .config
 $ make olddefconfig
-````
+```
 
 At this point the configuration files have been initialized and we are ready to select the preemption mechanism:
 
@@ -56,7 +61,7 @@ $ make menuconfig
 <br><i>The colorful interface presented by <tt>menuconfig</tt></i>
 </p>
 
-`menuconfig` is an `ncurses`-based tool that lets us modify the kernel parameters so we can obtain different configurations. Many aspects of the kernel's behavior can be changed by recompiling it with different options, but let's focus specifically on the ones we need: open **General Setup** -> **Preemption Model** and select **Fully Preemptible Kernel (Real-Time) ** instead of Voluntary Kernel Preemption (Desktop). 
+`menuconfig` is an `ncurses`-based tool that lets us modify the kernel parameters so we can obtain different configurations. Many aspects of the kernel's behavior can be changed by recompiling it with different options, but let's focus specifically on the ones we need: open **General Setup** -> **Preemption Model** and select **Fully Preemptible Kernel (Real-Time)** instead of Voluntary Kernel Preemption (Desktop).
 
 <p style="vertical-align:middle;">
 <img src="https://raw.githubusercontent.com/jack23247/blog/master/img/menuconfig-sched.png" alt="menuconfig-sched" style="zoom: 100%;" />

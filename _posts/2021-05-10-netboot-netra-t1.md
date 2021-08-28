@@ -102,7 +102,7 @@ Now, following [this nice guide]( https://docs.oracle.com/cd/E26505_01/html/E280
    ```
    polaris# lofiadm -a /home/quartz/Desktop/sol-10-u11-ga-sparc-dvd.iso 
    polaris# sudo mount -F hsfs -o ro /dev/lofi/1 /mnt
-   polaris# ls /mnt                                                      
+   polaris# ls /mnt
    boot       installer                         platform
    Copyright  Offer_to_Provide_Source_Code.txt  Solaris_10
    ```
