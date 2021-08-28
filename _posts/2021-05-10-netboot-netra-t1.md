@@ -14,7 +14,7 @@ tags:
  - network
 ---
 
-Since acquiring a disk array Sun, I've decided to revive an old [Netra T1](https://dogemicrosystems.ca/pub/Sun/System_Handbook/Sun_syshbk_V4.1/Systems/Netra_T1_AC200/Netra_T1_AC200.html) (`aldebaran.local.net`) I had lying around to make an Unix media box. Since I'm a cheapskate and I didn't want to buy a blank DVD to install Solaris (and partly because the T1 does not have a DVD drive), I decided that netbooting would be the sanest option. 
+Since acquiring a Sun UltraSCSI disk array, I've decided to revive an old [Netra T1](https://dogemicrosystems.ca/pub/Sun/System_Handbook/Sun_syshbk_V4.1/Systems/Netra_T1_AC200/Netra_T1_AC200.html) (`aldebaran.local.net`) I had lying around to make an Unix media box. Since I'm a cheapskate and I didn't want to buy a blank DVD to install Solaris (and partly because the T1 does not have a DVD drive), I decided that netbooting would be the sanest option.
 
 In 2021, a SPARC machine can be netbooted in different ways, namely:
 
@@ -30,7 +30,7 @@ Armed with my newfound netbooting knowledge, I decided that my laptop would be m
 
 ## Overconfidence
 
-I decided to follow [this nice article]( https://jackwilsdon.me/solaris-10-jumpstart-linux/ ), as it described the procedure clearly: sadly, while I could reach `tftpboot` and download the kernel, it would then refuse to mount the `rootfs` from NFS. This was one of several dozens of failed boot attempts with different parameters, [verbose options]( https://wiki.xdroop.com/space/Sun/Jumpstart/panic+-+boot:+Could+not+mount+filesystem) and stuff:
+I decided to follow [this nice article]( https://jackwilsdon.me/solaris-10-jumpstart-linux/ ), as it described the procedure clearly: sadly, while I could reach `tftpboot` and download the kernel, it would then refuse to mount the root filesystem from NFS. This is an excerpt from one of several (failed) boot attempts with different parameters, [verbose options]( https://wiki.xdroop.com/space/Sun/Jumpstart/panic+-+boot:+Could+not+mount+filesystem) and stuff:
 
 ```
 [...]
@@ -242,7 +242,7 @@ Search complete.
 Discovering additional network configuration...
 ```
 
-It will take a while here (and while trying to autodetect the link on `eri1` which was not connected in my case), but when it's done, you'll be presented with your standard Solaris "choose your destiny" prompt:
+It will take a while here, specifically while trying to autodetect the link on `eri1` which was not connected in my case: when it's done, you'll be presented with your standard Solaris "choose your destiny" prompt:
 
 
 ```
@@ -263,4 +263,5 @@ Select a Language
 Please make a choice (0 - 10), or press h or ? for help:
 ```
 
-And we're done! Just follow the on-screen prompts as usual: from this point, it's a completely standard Solaris installation.
+And we're done! Just follow the on-screen prompts as usual: from this point, it's a completely standard Solaris installation procedure.
+
