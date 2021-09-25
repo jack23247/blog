@@ -142,3 +142,5 @@ And [there](https://archive.org/details/thinkpad380rec) it was: ready to be rest
 I have no idea, they're lost: my Xbox is in a sorry state and the damn Amazon seller won't contact me. I can't even go to one of the very few local suppliers because I'm stuck here because of the damn COVID laws.
 
 Yuck.
+
+> I contacted the local supplier and they had none, so I bought another batch of capacitors from AliExpress (of all places...) and after, like, six months they turned up! It took more than a year but I got my Xbox chooching away, even if the goddamn ground planes gave me one hell of a hard time, this summer (June 2021, this article was published in May 2020). 
