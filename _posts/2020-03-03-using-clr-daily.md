@@ -13,7 +13,7 @@ tags:
  - battery
 ---
 
-> ***UPDATE***<br> Clear Linux as a desktop distribution is [dead](https://community.clearlinux.org/t/changes-coming-to-clear-linux-direction/4337). Long live Clear Linux as a cloud and server distribution.
+>  Clear Linux as a desktop distribution is [dead](https://community.clearlinux.org/t/changes-coming-to-clear-linux-direction/4337). Long live Clear Linux as a cloud and server distribution.
 
 I've been exploring Clear Linux as my daily driver laptop OS for quite a while, and I've found it pretty suited to what I need: it's modern, fast and has a small but nice community around it.
 

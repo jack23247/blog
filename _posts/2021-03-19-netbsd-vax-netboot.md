@@ -16,29 +16,31 @@ tags:
  - retrocomputing
 ---
 
-I've had my MicroVAX for a long time, and I've always had problem with peripherals: someone had left the tape in the TK50 for, like, twenty years and it was seized, one of the RF30 DSSI drives was DOA and the other one started acting up some years later, rendering the chonkster unusable. Since it's one of my favorite machines, I've decided that, one day or another, I would make it boot again. Instead of spending tons on a QBUS SCSI adapter and a SCSI2SD device, I've decided that the fastest and more flexible route would be setting up a computer for booting it remotely.
+Since I've owned my MicroVAX, it's always had some kind of problem with its peripherals: someone had left the tape in the TK50 for years and it was completely seized, one of the RF30 DSSI drives was DOA, and the other one started acting up some years later rendering the system unusable. Since it's one of my favorite machines, I've decided that one day or another I'd make it boot again: since a QBUS SCSI adapter and a SCSI2SD device could potentially cost me a grand, I've decided that the fastest and more flexible way to do so would be setting up a computer for booting it from the network.
 
-So, after an insanely long time, I did it. Here are my notes:
+So, after an insanely long time, I did it: here are my notes.
 
 ## Planning
 
-Booting the VAXen from network is easy enough, since they were designed to be able to run entirely diskless in clusters, but it's not as straightforward as, say, launching `tftpd` and calling it a day. A lot of things can go wrong, the MOP protocol is quite picky, and not being used to this stuff in general can make it look daunting. The first time I tried, I used a laptop: I spent the entire day looking at wireshark and talking to people who did this before me, and after messing it  up several times I succeeded. Too bad I was so busy I didn't take any notes, so to migrate everything to Edmonton, the new NFS host, I wasted the best part of an afternoon (correction: two afternoons).
+The VAXen were designed to be able to run as diskless nodes in clusters, so netbooting them is easy. Due to the fact that we're still talking about a VAX, though, the process is not as straightforward as, say, launching `tftpd` and calling it a day: a lot of things can (and will) go wrong, as the MOP protocol is quite weird, and not being used to it can make the process look daunting. 
 
-<p style="vertical-align:middle;">
-<img src="https://raw.githubusercontent.com/jack23247/blog/master/img/vupsmeme.png" alt="vupsmeme" style="zoom: 50%;"/>
-<br><i>Oh yeah you bet</i>
-</p>
+It took me several tries to get this working: the first time I succeded, it was after spending an entire day looking at wireshark and nagging people who did this before me. Unluckily for past future me, I was so concentrated I forgot to write down the procedure, so when I attempted to migrate everything to the new NFS host, I wasted a couple of afternoons doing things wrong all over again.
 
-Oh well, at least I took notes this time.
+Oh well, at least I took the time to write down notes this time.
+
+<img src="https://raw.githubusercontent.com/jack23247/blog/master/img/vupsmeme.png" style="zoom: 50%;" />
+
+
+
 
 ### Note to reader
 
-If you're willing to read through this document, please keep in mind that I'm fiddling with the following:
+If you're willing to read through this document, please keep in mind that I'm using the following naming conventions:
 
-- `edmonton.local.net` - `10.0.0.1` - The NFS host, a chinese motherboard with an AMD RX-8120 (or A9-9820) "Cato" APU running Debian 10;
-- `osiris.local.net`- `10.0.0.101` - The chonky Digital MicroVAX 3300, running NetBSD 1.5.3.
+- `edmonton.local.net`, `10.0.0.1` is the NFS host;
+- `osiris.local.net`, `10.0.0.101` is a Digital MicroVAX 3300.
 
-Also, keep in mind that any `#` prompt means that you must run that command with `sudo` (not as `root` because in some places I assume that the environment is preserved).
+Also, keep in mind that any "`#`" prompt means that you must run that command with `sudo` (not as `root` because in some places I assume that the environment is preserved).
 
 ## Installing
 
@@ -357,6 +359,8 @@ edmonton# mv usr/* ../usr/
 
 ## Configuring
 
+![](https://raw.githubusercontent.com/jack23247/blog/master/img/find_not_found.png)
+
 ### Off-line configuration
 
 Before we tell our VAX to `B ESA0` again, we need to change some configuration files in the export's `/etc` directory.
@@ -401,10 +405,6 @@ The last thing we have to do before being able to netboot is creating the client
 
 #### First boot and on-line configuration
 
-<p style="vertical-align:middle;">
-<img src="https://raw.githubusercontent.com/jack23247/blog/master/img/find_not_found.png" alt="find_not_found" style="zoom: 100%;" />
-<br><i>Today in a nutshell</i>
-</p>
 
 If everything went well, you should see something like this:
 

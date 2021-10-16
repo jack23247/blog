@@ -21,7 +21,7 @@ tags:
  - covid
 ---
 
-> [2020-04-05:jack23247](mltjcp64+blog@gmail.com) In hindsight, this article might be a bit too cheeky, and it's useless. Read at your own risk.
+> [2021-04-05:jack23247](jack23247@pm.me) In hindsight, this article might be a bit too cheeky, and it's useless: it was written by a bored and tired older me that'd been stuck home for a very long time. Read at your own risk.
 
 Dear ghostly readers,<br>
 I hope everyone's fine in these Coronavirus-laden times. As the quarantine struck pretty early in Italy, it was quite hard to find something to keep me entertained while staying at home and sitting at the computer screen all day.<br>

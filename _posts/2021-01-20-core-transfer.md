@@ -18,94 +18,78 @@ tags:
 >
 > ―[Aperture Science Announcement System](https://half-life.fandom.com/wiki/Aperture_Science_Announcement_System)
 
-I've been collecting AS/400s for a couple years now, and I'm kinda sad that none of my articles are about those wonderful machines: I think I simply had nothing "useful" to say about them (which is not exactly correct, but whatever) until now.
+The AS/400 is a weird platform: it's unique, full of quirks, and its software stack is so well integrated with the hardware platform that the machine can order spare parts automatically from IBM. The quirky nature of the AS/400, along with a reasonable entry barrier, makes it a very interesting platform for the <s>masochist</s> hobbyist like me who's interested in old and somewhat obscure systems.
 
-You might also be wondering: "*what exactly is an AS/400?*". That's a simple question, yet hardly a simple answer. I'll write about it sometime.
+## The problem
 
-> The really important thing is that, for once, I've found a bunch of really competent people that can actually correct me when I'm wrong and point me in the right direction, so **thank you IBM i Discord Community**, I owe y'all one.
+However, the tight integration comes at a cost: for starters, if you need spare parts you're gonna have a bad time, since even the disks are proprietary (despite being bog-standard SCSI they use custom sector sizes and are firmware locked). Moreover, the licensing scheme is incredibly convoluted (very business-oriented, if you know what I mean), and it's terrible for hobbyists: if you don't have the licenses for your system, you're bound to reinstall <u>everything</u> every 70 days. 
 
-Now, what do I have to say today about the AS/400s? Well, a couple things: for starters, my collection is about to grow a bit larger. Currently, I own the following machines:
+The older machines (CISC ones) go even further: every CPU card has something called Vital Product Data (VPD), a bunch of numbers that is unique to that card and factory paired to the front panel. This means that the pairing information is stored on both battery-backed RAM and on the disk: both things go bad at the same time you lose the pairing info and end up with a very heavy door stopper. Newer machines are somewhat more relaxed, but if you lose your LICKEYs you're bound to the 70 days cycle anyway.
 
-| Model    | Name     | Description                                                 |
-| -------- | -------- | ----------------------------------------------------------- |
-| 9401-150 | The Good | A rather nice 150, my first 400                             |
-| 9406-270 | The Bad  | A big, bad boy I got from a relative, it has a broken DASD  |
-| 9401-150 | The Ugly | A 150 I've saved from someone's lawn. It's in a sorry state |
+> [2020-03-19:jack23247](mltjcp64+blog@gmail.com) Ok, so, I got the whole VPD thing incorrect: it's way more complicated than that and not limited to CISC hardware, so even, say, a 270 or a POWER4 iSeries might get nuked (I still don't get the full picture so don't quote me on this). Also, later machines (POWER3+ probably) have a dedicated bootstrap processor housed on a "VPD card" which kills the system if it goes bad. <br>Neat.
 
-And I've just found a 9402, a late CISC machine, I'm about to pick up (COVID restrictions may delay that a bit). 
+## The Model 150
 
-The star of today's show though, are the two 150s: you see, most 400s need a very specific kind of licensing information to work correctly. 
+There is exactly one loophole in this whole licensing ordeal: the 9401-150. The 150 was the slowest machine of the AS/400e line,  but also one of the most aggressively priced: IBM figured that to attract small offices and application developers they could entitle anyone who bought a 150 to run the whole V4 distribution on it without getting any additional license. For this reason, the 150 was extremely popular in europe (specifically in Italy, where they were assembled in the Santa Palomba plant) and there are a ton on the used market. Moreover they're small, silent, electrically cheap to operate, and they weigh like a conventional tower PC: it's a hobbyist's dream machine for sure. 
 
-If you don't have the licenses for your Licensed Programs (as in, OS and extras) you're bound to reinstall everything every 70 days or so. Yuck. The older machines (CISC ones) go even further: every CISC CPU card has something called Vital Product Data (VPD), a bunch of numbers really, that is unique and tied to the actual system that's installed on disk. The CPU card VPD is factory paired to the front panel, which stores the pairing information on battery-backed RAM, and on the disk. The problem is: if the disk goes bad and the battery has depleted, well, you lose the pairing info and end up with a very heavy door stopper. Newer machines are somewhat more relaxed, but if you lose your LICKEYs you're bound to the 70 days cycle anyway.
+## An unfortunate rescue
 
-> [2020-03-19:jack23247](mltjcp64+blog@gmail.com) Ok, so, I got the whole VPD thing wrong: it's more complicated than that and not limited to CISC hardware, so even, say, a 270 or a POWER4 iSeries might get nuked. Also, later machines (POWER3+ probably) have a dedicated bootstrap processor housed on a "VPD card" which kills the system if it goes bad. Nasty business.<br>Oh and don't quote me on any of this, seriously.
+There are so many 150s here that you might literally come across one by chance, like I did with one of those I acquired. In December 2019, out of the blue, I got this message from a friend: 
 
-There is exactly one loophole in this whole licensing ordeal: the AS/400 9401 model 150. The 150 was a slow machine, yet aggressively priced for small business: it was so cheap because buying the machine would basically entitle you to run the whole V4R* distribution on it without getting any license. Moreover, it uses (almost) off-the-shelf peripherals, it's small, electrically cheap to operate, and does not weigh a ton: It's a hobbyist's dream machine for sure. 
+<img src="https://raw.githubusercontent.com/jack23247/blog/master/img/msgkug150.png" alt="msgkug150" style="zoom: 80%;" />
 
-After getting *The Ugly* from a friend about ten months ago, I've never really done anything with it besides finding out that it fails to IPL with an MFIOP error (I think the tape drive is electrically dead or something), but being unable to test it further I've always wondered what resided on the ASP (the disk pool). Afraid to kill *The Good* by fiddling around too much, I've never attempted to recover the disks and they basically sat there unused as "spares", just in case I'd need them. 
+...and let's just admit I was a bit _too_ excited.
 
-<p>
-<img src="https://raw.githubusercontent.com/jack23247/blog/master/img/dummy_sys.jpg" alt="dummy_sys" style="zoom:75%;" />
-<br><i>Remember: this could happen if you IPL the wrong thing</i>
-</p>
+The system was pretty beat up, and it'd sat in light rain for a couple days (the water in the yellow bucket is rain) before my friend was able to formally acquire it from his neighbors. Sadly, it failed to IPL with an MFIOP error (which I might've nailed down to a broken capacitor leg on the backplane). 
 
-
-Today this changed: after having a talk with the aforementioned great guys on Discord I've decided to try a risky procedure: swap *The Good*'s good DASDs (let's call them "core" from now on, although it's definitely NOT IBM lingo) with *The Ugly*'s mysterious one. The concern was that my good core could be crippled as the MFIOP would "forget" the drive ordering and mix the disks up upon the next IPL.
-
-> I think a little bit of explaining is due here:
+> I think a little bit of vocabulary is due here:
 >
 > - Direct Attached Storage Device (DASD) is IBMese for "disk drive". So a single DASD is technically a disk drive, at least in the midrange world. I sometimes call DASD the whole disk array as that's closer to the original meaning of the term.
 > - Attached Storage Pool (ASP) is a term that indicates how the OS "sees" (and partitions) a bunch of DASDs, think of it as an LVM or ZFS volume. An ASP can either be supported by an underlying RAID array (a RAID of DASD) or use the disks directly, just like LVM, and most of the time it encompasses a bunch of disks.
-> - Initial Program Load (IPL) is the boot process. The firmware of the MultiFunctional I/O Processor (MFIOP), which is a fancy SCSI controller, looks for almost-SCSI (yes it's non-standard SCSI on most machines) devices, searching for a Load Source (the place where the LIC resides).
-> - Licensed Internal Code (LIC) is, well... think of it as a kernel that includes an EFI loader, BIOS, and some kind of virtual machine (as in JVM, not a hypervisor). It's kinda convoluted: basically, everything down to firmware is stored on disk, so even to perform the most basic task you need a working Load Source.
->
-> Since the Load Source is fundamental, and the ASP geometry data resides there, reordering the disks can be catastrophic, hence why we were concerned about the swap.
+> - The Initial Program Load (IPL) is the equivalent of a PC's boot process. When powering the system on, the Multifunctional I/O Adapter's (MFIOA) fancy SCSI controller scans through the attached DASD, searching for a Load Source (the place where the LIC resides).
+> - Licensed Internal Code (LIC) is an hybrid between a kernel, a BIOS, a set of recovery tools, and some kind of low-level virtual machine (similar to the JVM or M$'s CLR). Basically, even to perform the most basic task you need a working Load Source.
 
-<p>
-<img src="https://raw.githubusercontent.com/jack23247/blog/master/img/the_cores.jpg" alt="the_cores" style="zoom:50%;" />
-<br><i>The cores</i>
-</p>
+Being unable to make it progress further I was left wondering about what actually resided on the ASP, and whether or not it was still IPLable. Afraid to softlock my good machine by fiddling around too much, I've never attempted to recover the content of the platters, and the system basically sat there unused as a "spares only" unit.
+
+## Curiosity killed the cat...
+
+After having a talk with the small yet incredibly talented group of AS/400 hobbyists on Discord, I've decided to try and swap in the  DASD set (which I'll refer to as "core" from now on) from the spares machine to the working one, to see if it would IPL. My concern was that the core from the working machine could be crippled as the MFIOA could mix the disks up and "forget" the load source: this later turned out to be wrong, since the ASP geometry is stored on the load source and the MFIOA has to look for it on each IPL anyway.
+
+<img src="https://raw.githubusercontent.com/jack23247/blog/master/img/the_good_and_cores.jpg" alt="the_good_and_cores" style="zoom: 33%;" />
 
 
-I ignored the danger, knowing very well that the V4R5 installation on *The Good*'s core is extremely uninteresting and that I'm going to reinstall it afresh for sure someday (remember, media is enough on a 150), I decided to give it a go and swap the cores.
 
-The installation procedure is quite risky: while the whole drive cage conveniently comes off, It's smashed two of my fingers against the rather small and pointy passive CPU heatsink, causing catastrophic bleeding (I literally smeared the heatsink with blood, it was quite a mess). I'm fine with it since the drive cage conveniently makes reordering drives impossible.
+Since the system on my good machine is crippled and needs to be reinstalled anyway, I decided to give it a go and swap the cores.
 
-After getting a transfusion, I was hesitant to flick the switch: after doing so, there would be no turning back... At RAND_T minus 0, I hit the big white button, and the iconic  
+Swapping the drive cage on the 150 is quite an uneventful process: the whole cage is held mechanically by two tabs that grab the 5.25" bays, and by a clever locking mechanism that uses a long screw to lodge a bracket into the tab that protrudes from the back of the drive cage (you can see it in the picture above on the back of the cage sitting atop the machine). While the drive cage comes off whole, it takes a considerable amount of force to dislodge it from the frame: in the (truly ritual) process, I managed to smash my fingers against the aluminum fins of the CPU heatsink, smearing it all with blood.
 
-```
-01		B N
-```
+## ..but satisfaction brought it back
 
-appeared on the display. Liftoff! It was time to see if the trick would work or mess up my perfectly good system. Yes, I forgot to go in Attended mode, but it really made no difference.
+After cleaning and putting together the system, I flicked the switch on the PSU. Immediately, the front panel sprung to life, displaying `01		B N` in bright green letters as if it was daring me to initiate an IPL. 
 
 > `B` is the IPL side, `N` is the operating mode. Here's a chart:
 >
-> | A                                      | B                               | C                                                            | D                   |
-> | -------------------------------------- | ------------------------------- | ------------------------------------------------------------ | ------------------- |
-> | IPL the LIC's Permanent Copy (no PTFs) | IPL the current LIC and PTF set | Hardware Service Representative reserved IPL (aka black magic from Rochester) | IPL the service LIC |
+> | A                                      | B                               | C                                                            | D                                   |
+> | -------------------------------------- | ------------------------------- | ------------------------------------------------------------ | ----------------------------------- |
+> | IPL the LIC's Permanent Copy (no PTFs) | IPL the current LIC and PTF set | Hardware Service Representative reserved IPL (aka black magic from Castle Rochester, NY) | Attempt to IPL from removable media |
 >
-> You commonly IPL from side B, and if you have any problems with the Program Temporary Fixes (PTFs, aka patches) applied to the system you may revert to A and apply a different set of patches. Side C is weird and undocumented, *hic sunt leones*, and side D is used to perform some maintenance described in the manuals.
+> You commonly IPL from side B, but if you're not happy with the last set of Program Temporary Fixes (PTFs, aka patches) you applied to the system you may IPL A and apply a different set (kinda like recovery checkpoints in Windows). Side C is weird (*hic sunt leones*), and side D is used to perform system installation from removable media (CD-ROM or tape).
 >
-> The operating modes are nothing special:
+> The operating modes quite straight forward:
 >
-> | Manual (M)                                       | Normal (N)                   |
-> | ------------------------------------------------ | ---------------------------- |
-> | Attended IPL, aka interact with the boot process | Directly IPL to logon screen |
+> | Manual (M)                                                   | Normal (N)                                                   |
+> | ------------------------------------------------------------ | ------------------------------------------------------------ |
+> | Attended IPL, letting you interact with the<br>boot process before the subsystems are started | Directly IPL to full system capacity,<br>it's used normally in production |
 >
-> You would normally use the Normal IPL (duh), but the attended IPL is very useful to work with the system as it allows you to go to the Dedicated Service Tool (DST), which is a set of tools used to configure the disks.
+> The attended IPL is very useful to work with the system as, for example, it allows you to use the Dedicated Service Tool (DST), which is used to work with low-level system configuration.
 
-Or so I thought: the IPL proceeded at a snail's pace, as the system was probably quite confused about the serial numbers not matching up (or probably just needed to tidy up a bit since it was not IPLd since 2016). After grabbing a bite I came back and turned on the console, being greeted immediately with ~~Geiger counter~~ SCSI drive noises and a login prompt! 
+I was hesitant: what if I messed up and killed my only working 150? "Screw it", I thought, while hitting the big white square.
 
-**YES! The swap trick works!** I could (thankfully) login with the default `QSECOFR` password (which is `QSECOFR`, imagine if all Linux boxes came with `root`/`root`) and play around a bit. It seems like the machine had been used as an RPG box to port an older application from a System/36 to the integrated SSP environment on OS/400, while having a somewhat sketchy `192.168.0.1` IP assigned to it. 
+The cold start proceeded, albeit at a snail's pace: the system was probably quite confused (or just needed to be dusted off since it was not IPLd since 2016). After grabbing a bite I came back and looked in awe at the system greeting me with SCSI drive noises and a login prompt. My excitement was (once again) hard to contain: **the core can be swapped between 150s!** This means that if  one of those machines is missing its DASDs or your ASP is rendered unbootable by a failed platter, you can still rescue it by swapping in another known-working core.
 
-<p>
-<img src="https://raw.githubusercontent.com/jack23247/blog/master/img/the_good_and_cores.jpg" alt="the_good_and_cores" style="zoom: 50%;" />
-<br><i>The Good with the cores</i>
-</p>
+I could (thankfully) login with the default `QSECOFR` (Security Officer aka `root`) password... which is `QSECOFR` (imagine if all Linux boxes had credentials `root`/`root` enabled by default) and play around a bit. It seems like the machine had been used as an RPG box to port an older application from a System/36 to the integrated SSP environment on OS/400, and it had a somewhat weird `192.168.0.1` IP.
 
+## Conclusions
 
-After playing around with it for a while, I wanted to see if the swap trick would be reversible or not and, long story short, indeed it was! I can't state how refreshing it is to turn the machine I was afraid to boot because "I could damage drives" in a very flexible test lab for weird DASD configs.
-
-And that's it. Here I stand, all excited because I found out that I can swap a disk with another (identical) one... This is why I find the AS/400s so interesting: everything is complicated in a way that makes it different than any other computer system you've used. While using a 400 you can basically take nothing for granted, and that eventually builds some solid skills.
+And that's it: I reverted the machine to its original configuration and was indeed able to IPL it without any hiccups, while being incredibly excited by the notion that I can swap a disk with another (identical) one without bricking my weird little machine. This is why I find the AS/400 so interesting: everything is different enough from any other computer system you've used for you not to be able to take anything for granted, but if you play around with them long enough you'll eventually build some solid skills.
 

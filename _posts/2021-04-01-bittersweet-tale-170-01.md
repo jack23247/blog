@@ -16,9 +16,7 @@ tags:
 
 I recently recovered an AS/400 9406-170 with an expansion chassis I got for scrap value: the seller advertised it as "barely functioning, can't find VGA port", but since it is quite loaded I decided to at least try and save the disks. 
 
-When I first plugged it in, it turned out that Expansion Unit's PSU was completely dead: when the EU Planar was plugged into the BU Planar, the system would not IPL, complaining about a power failure, and the EU PSU would draw no amps from the wall, a clear sign that something was wrong.
-
-I decided to take a look around and see what I could do about it: it turned out that the SRC was related to the fact that the system could not communicate with the EU PSU through the EU planar. I thought that replacing the fuse would fix it, so I did, and tried plugging it in again: there was furious arcing and the fuse melted.
+When I first plugged it in, it turned out that Expansion Unit's PSU was completely dead: when the EU Planar was plugged into the BU Planar, the system would not IPL, complaining about a power failure, and the EU PSU would draw no amps from the wall, a clear sign that something was wrong. I decided to take a look around and see what I could do about it: it turned out that the SRC was related to the fact that the system could not communicate with the EU PSU through the EU planar. I thought that replacing the fuse would fix it, so I did, and tried plugging it in again: there was furious arcing and the fuse melted.
 
 Time to find a workaround, I guess...
 
@@ -40,7 +38,7 @@ I also removed the whole EU Planar and ribbon cable, so I would not risk damagin
 
 > ***NOTE TO READER***
 >
-> The MFIOA from the sad 150 is technically not supported, but I decided to try to use it anyway and (to my surprise) it works just fine!
+> The MFIOA from the sad 150 is technically not supported, but I decided to try to use it anyway and (to my surprise) it works just fine.
 
 ### Powering the drives
 
@@ -57,10 +55,8 @@ And you know what? This is great! We know that the battery went dry a long time 
 
 ### Side D to the rescue
 
-<p style="vertical-align:middle;">
-<img src="https://raw.githubusercontent.com/jack23247/blog/master/img/170_loading_slic_dst.jpg" alt="170_loading_slic_dst" style="zoom: 100%;" />
-<br><i>The 170 loading DST from the SLIC CD</i>
-</p>
+![](https://raw.githubusercontent.com/jack23247/blog/master/img/170_loading_slic_dst.jpg)
+
 
 I decided to attempt a manual IPL from side D, and I got `B1014507` (load source not ready): this, again, was expected as the system was trying to IPL from the SLIC CD. The problem is that, even after inserting V4R4 I_BASE_01, it would repeatedly fail: the CD-ROM drive was dirty enough that it had trouble reading the disk! After a good cleaning, all was well and I could IPL to DST, and perform an IOP Data Cache Reclaim operation. 
 
@@ -68,8 +64,9 @@ This reclaim basically tells the system to discard everything that was in cache:
 
 ## ABEND
 
-Sadly, at this point things took a turn for the worse: all was well, the system re-IPL'd and started resyncing the RAID array and rebuilding the object database. This meant a sizable power draw, with both heavy disk activity and high CPU load. At this point, the old and tired PSU gave in, and it tripped. No SRCs, no fault light: it just went dark for a fraction of a second, enough time to bring the whole system to a halt. 
+Sadly, at this point things took a turn for the worse: all was well, the system re-IPL'd and started resyncing the RAID array and rebuilding the object database. This meant a sizable power draw, with both heavy disk activity and high CPU load. At this point, the PSU gave in and tripped. No SRCs, no fault light: it just went dark for a fraction of a second, bringing the whole system to a sudden halt. 
 
-And this is the end of the story, for now: I have not confirmed what went awry in the PSU because it's riveted, and not supposed to be opened for repairs at all, and since after 23 years finding spare parts is not that easy or economical I can either scour eBay for a cheap and (hopefully) working PSU or decide to open it up and attempt to repair it.
+And this is the end of the story, for now: I have not confirmed what went awry in the PSU because it's riveted and not supposed to be opened for repairs at all, so I can either scour eBay for a cheap and (hopefully) working parts bin PSU or decide to open it up and attempt to repair it. 
 
 Thus, I hope this article is only "part one" of a series where I'm able to put the system back online. 
+

@@ -10,19 +10,17 @@ tags:
  - ibm
 ---
 
-![aix](https://raw.githubusercontent.com/jack23247/blog/master/img/aix.png)
-
 The IBM RS/6000 43P Model 100 (7248-100) is an entry-level workstation made by IBM in circa 1996. My machine has 96MB of RAM, 2x2GB SCSI disks and a 100MHz PowerPC processor. It came with AIX 4.1.5 and Windows NT 4.0 Workstation installed. The latest AIX revision it can run is 4.3.3, which is available on the net.
 
 ## Obtaining the OS images
+
+![aix](https://raw.githubusercontent.com/jack23247/blog/master/img/aix.png)
 
 AIX 4.3.3 has been preserved and installation images are downloadable from [WinWorld](https://winworldpc.com/product/aix/43x). For a minimal install you'll need only the first disk, but I suggest you also burn at least the **Bonus Pack CD 1**, which contains much needed manual pages.
 
 ## Booting the machine
 
 The 7248-100 is a PReP machine, so it does not have the nice OpenFirmware ROM like CHRPs. To interact with the Firmware while booting you can press one of the function keys *before the last icon displays*. Please note that you should have an SMS Disk suitable for your machine if you intend to change the configuration and perform tests. Here is a summary of the boot options:
-
-
 
 | Key  | SMS Disk Required | Function                     |
 | ---- | ----------------- | ---------------------------- |
@@ -86,7 +84,7 @@ This is a quite unnerving feature of AIX I was quite shocked about at first: the
 
 A quick `df` revealed a grim looking situation:
 
-```shell
+```
 # df -h
 df: Not a recognized flag: h
 Usage: df  [-P] | [-IMitv] [-k] [-s] [filesystem ...] [file ...]
@@ -108,7 +106,7 @@ Filesystem    512-blocks      Free %Used    Iused %Iused Mounted on
 
 What the heck? How do I enlarge filesystems? Thanks to [this guy](http://geekswing.com/geek/how-to-expand-a-filesystem-in-aix-df-lsvg-chfs/) I was able to start poking around (I had not installed man pages yet). 
 
-```shell
+```
 # lsvg -p rootvg
 rootvg:
 PV_NAME           PV STATE    TOTAL PPs   FREE PPs    FREE DISTRIBUTION
@@ -119,7 +117,7 @@ hdisk1            active      537         521         108..107..91..107..108
 
 Ok, so, what does this mean? It means we have 1109 phisical partitions spanning on two phisical volumes, of which 976 are free. Logical partitions are made of phisical partitions (like an LVM volume is made of Extents) , so basically we have almost 90% of our disk space completely wasted. Yuck. Let's try to enlarge `/home` then:
 
-```shell
+```
 # df /home
 Filesystem    512-blocks      Free %Used    Iused %Iused Mounted on
 /dev/hd1            8192      7840    5%       20     2% /home
@@ -134,7 +132,7 @@ Apparently, AIX 4.3.3 does not really check what you type after `size=`, because
 
 I pretty much screwed up my filesystems before understanding this simple fact.
 
-```shell
+```
 # chfs -a size=16384 /home
 Filesystem size changed to 16384
 # df /home

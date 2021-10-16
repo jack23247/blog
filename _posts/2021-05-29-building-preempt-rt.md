@@ -1,5 +1,5 @@
 ---
-title: "Building the `PREEMPT_RT`-patched Linux Kernel (for great justice)"
+title: "Building the `PREEMPT_RT`-patched Linux Kernel"
 date: 2021-05-29T01:05:00+01:00
 categories:
  - linux
@@ -29,16 +29,11 @@ The initial idea was pretty simple: build the kernel and write an application th
 
 ## Building the kernel
 
-Building an RT-patched kernel is really simple, and this [great if a bit outdated article](http://kernel-notes.gbittencourt.net/compiling-preempt-rt/) outlines the process.
-
-<p style="vertical-align:middle;">
-<img src="https://raw.githubusercontent.com/jack23247/blog/master/img/for-great-justice.gif" alt="for-great-justice" style="zoom: 100%;" />
-<br><i>For great justice</i>
-</p>
+Building an RT-patched kernel is a straightforward process, and this [well-written article](http://kernel-notes.gbittencourt.net/compiling-preempt-rt/) outlines the process.
 
 ### Downloading and unpacking the sources
 
-The kernel team provides either the full, already patched, kernel sources or a patch that can be applied onto the mainline tarball. Not being familiar with the patching process I decided to go with the former, and I downloaded the [5.4.74-rt41-rebase](https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-stable-rt.git/tag/?h=v5.4.74-rt41-rebase) archive. Once the download completes, I unpacked the archive somewhere in my home directory (let's say, hypothetically, `~/linux-stable-rt-5.4.74-rt41-rebase` ) . Be wary that the sources are quite heavy, around the gigabyte mark.
+The kernel team provides either the full, already patched, kernel sources or a patch that can be applied onto the mainline tarball. Not being familiar with the patching process I decided to go with the former, and I downloaded the [5.4.74-rt41-rebase](https://git.kernel.org/pub/scm/linux/kernel/git/rt/linux-stable-rt.git/tag/?h=v5.4.74-rt41-rebase) archive. Once the download completes, I unpacked the archive somewhere in my home directory (let's say, hypothetically, `~/linux-stable-rt-5.4.74-rt41-rebase`). Be wary that the sources are quite heavy, around the gigabyte mark.
 
 ### Configuring the kernel
 
@@ -60,8 +55,7 @@ $ make menuconfig
 <img src="https://raw.githubusercontent.com/jack23247/blog/master/img/menuconfig-main.png" alt="menuconfig-main" style="zoom: 100%;" />
 <br><i>The colorful interface presented by <tt>menuconfig</tt></i>
 </p>
-
-`menuconfig` is an `ncurses`-based tool that lets us modify the kernel parameters so we can obtain different configurations. Many aspects of the kernel's behavior can be changed by recompiling it with different options, but let's focus specifically on the ones we need: open **General Setup** -> **Preemption Model** and select **Fully Preemptible Kernel (Real-Time)** instead of Voluntary Kernel Preemption (Desktop).
+`menuconfig` is an `ncurses`-based tool that lets us modify the kernel parameters so we can obtain different configurations. Many aspects of the kernel's behavior can be changed by recompiling it with different options, but let's focus specifically on the ones we need: open **General Setup → Preemption Model** and select **Fully Preemptible Kernel (Real-Time)** instead of Voluntary Kernel Preemption (Desktop).
 
 <p style="vertical-align:middle;">
 <img src="https://raw.githubusercontent.com/jack23247/blog/master/img/menuconfig-sched.png" alt="menuconfig-sched" style="zoom: 100%;" />
