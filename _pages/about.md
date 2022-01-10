@@ -3,31 +3,29 @@ permalink: /about/
 title: "About"
 ---
 
-Hello! I'm Jacopo, a BSc Graduate and future MSc Student in Computer Science at *Università Degli Studi di Milano-Bicocca* who's currently working on projects regarding real-time computing, operating systems, and computer architecture. You can reach me at:
+Hello! I'm Jacopo, an MSc Student in Computer Science at *Università Degli Studi di Milano-Bicocca* who's currently working as a technical advisor on an autonomous driving system project. You can reach me at:
 
 [jack23247@pm.me](mailto:jack23247@pm.me),
-[j.maltagliati@campus.unimib.it](mailto:j.maltagliati@campus.unimib.it),
-https://github.com/jack23247,
-http://jack23247.tk.
+https://github.com/jack23247.
 
-I have an interest in system administration, networking, real-time systems, operating systems and retrocomputing. Thanks to my experience with old computers I have used many opeownrating systems in the past, including but not limited to: Linux, BSD, Solaris, MS-DOS, Windows, OpenVMS, OS/400, OS/370 and VM/370. I'm quite fond of C and I have a background in scripting languages such as Bash, Ruby, Windows CMD and PowerShell. I've used LISP and Prolog and I'd like to learn more about languages such as Erlang and COBOL.
+I have an interest in computer architecture, system administration, networking, real-time systems and operating systems design in general. Thanks to my experience with old computers I've had the opportunity to experience many different ecosystems, including but not limited to: Linux, BSD, Solaris, MS-DOS, Windows, OpenVMS, OS/400, OS/370 and VM/370.
 
-In case you want to sell one of the following items and are located near (< ~2500Km) from Milan, Italy, I'd love if you could get in touch with me:
+My first foray into programming was via scripting languages like CMD, PowerShell, Python and Ruby. Today I'm quite fond of C and C++ and I've had the opportunity to use LISP, Prolog and Java for my programming courses.
+
+I've decided to stop collecting random stuff because it's getting way out of hand (I have too many AS/400s!), but if you have one of the following items you want to sell, please get in contact as I'm sure we can arrange something.
+
 - A small boat
-- An HP C8000
-- Any Itanium machine
-- A Sun Ultra 45
-- An SGI workstation that runs IRIX
-- A Sharp X68000
+- An HP C8000 or ZX6000
+- An IBM xSeries 382 (or any Itanium hw)
 - A System/36 5363
-
-Additionally, here's a list of items I'd love (but I'm not likely to ever find):
-- A NEC SX-8i or SX-6i
-- A System/390 Multiprise 3000
+- An Olivetti Linea 1 machine (M20, M30, M40, M45)
+- A desktop Amiga
 - An AlphaServer ES47 in a deskside cabinet
+- A NEC SX-8i or SX-6i
+- An IBM mainframe (preferably small like an S/390 MP3000)
 - A Cray EL9x or SV1
 - A Sun Enterprise 10k or 15k
 - An SGI Origin {2,3}000
+- Any weird system that runs Unix (the Olivetti LSX comes to mind)
 
-..or any other minisupercomputer for that matter.
-
+If you're into the retrocomputing scene you'll notice that most of these are extremely specific, rare or downright unobtanium: if I can't find something, then it can't clutter my basement! :wink:
