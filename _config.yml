@@ -60,9 +60,9 @@ author:
   avatar	: "/me.png"
   bio    	: "Computer Science student @ Università degli Studi di Milano-Bicocca"
   location	: "Milano, Italy"
-  uri		: "http://www.jack23247.tk"
-  home		: "http://www.jack23247.tk"
-  #email		: ""
+  uri		: "https://jack23247.github.io/blog/"
+  home		: "https://jack23247.github.io/blog/"
+  email		: "jack23247@pm.me"
 
   links:
     - label: "GitHub"
