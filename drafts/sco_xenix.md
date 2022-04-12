@@ -19,3 +19,6 @@ https://github.com/Octocontrabass/brandy
 Downloading UnixWare as we speak, hope to get data out
 
 <!-- the unixware tangent turned into a mess of its own league and I didn't get anything done -->
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbODAwMjkxOTU4XX0=
+-->
