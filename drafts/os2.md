@@ -41,3 +41,6 @@ Upon rebooting I let the wizard do its thing to the disk and ended up with a 450
 The system will now boot from the hard drive and present you with the Hardware Configuration menu: this is a crucial step, as OS/2 is very temperamental. In my case, most things were configured correctly, but I had to change the CD-ROM Device Support from "OTHER" to "Non-listed IDE CD-ROM" or it would refuse to let you use the drive later on. You'll be asked about a printer, which I omitted since I don't have, and to confirm your Display Driver.
 
 After confirming, the installer will ask you about which components you'd like to install, and if you'd like for it to search for existing Win3.11/DOS programs (more on that later). After some disk activity you'll be asked if you want to install the OS/2 Warp Connect networking components: if you don't have working drivers at hand, skip this. After copying the files, the system will attempt to autodetect the monitor you're using. Go for whatever resolution suits you best and continue.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTk5OTI1Mzc3MF19
+-->
