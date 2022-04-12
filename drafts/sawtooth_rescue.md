@@ -12,9 +12,7 @@ When I first attempted to power it up, the system didn't display anything and th
 
 After leaving the machine for a couple weeks, a friend suggested I could try to clean the cards' contacts. Since the machine was quite dirty, I figured it would be a good idea, so I did clean and reseat everything I could on the mainboard except for the CPU daughterboard.
 
-Sure enough, we started getting some output! It was quite garbled at first, but it turned out that it was just the DVI cable's fault, and switching to VGA solved the issue.
-
-The system's still not chiming for some reason.
+Sure enough, we started getting some output! It was quite garbled at first, but it turned out that it was just the DVI cable's fault, and switching to VGA solved the issue. However, the system's still not chiming for some reason.
 
 ## Inspecting the HDD
 
@@ -61,3 +59,6 @@ The PowerMac3,1 runs a lot of stuff!
 - Old Linux (2.6.x) like Mandriva and Yellow Dog
 - Adelie Linux (5.x!) musl-based distro
 - MorphOS
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTIxMDQ0NzEzNjNdfQ==
+-->
