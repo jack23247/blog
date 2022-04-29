@@ -1,6 +1,6 @@
 ---
 title: "Bad GPU performance? Blame your drivers!"
-date: 2022-04-29T18:08:00+01:00
+date: 2022-04-29T18:08:00+02:00
 categories:
  - misc
 tags:
