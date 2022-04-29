@@ -10,8 +10,7 @@ tags:
  - windows-xp
 ---
 
-
-I have a little gaming system built around an ITX motherboard with an integrated nVidia GPU that I use for Windows XP retrogaming. The system is quite nice and, on paper, should enable me to enjoy a lot of classic PC-only games without adding a dime to the bill. The system is configured as follows:   
+I have a little gaming system built around an ITX motherboard with an integrated nVidia GPU that I use for Windows XP retrogaming. The system is quite nice and, on paper, should enable me to enjoy a lot of classic PC-only games without adding a dime to the bill. The system is configured as follows:
 
 #### Specs
 
@@ -45,8 +44,8 @@ If you have this board, here are some useful links:
 
 #### Unofficial Service Pack 4
 
-- A video describing how to install USP4: [https://www.youtube.com/watch?v=vdIVMwV9MCk](https://www.youtube.com/watch?v=vdIVMwV9MCk)  
-- The files necessary to patch WSUS: [http://i430vx.net/files/wsusstuff/](http://i430vx.net/files/wsusstuff/)  
+- A video describing how to install USP4: [https://www.youtube.com/watch?v=vdIVMwV9MCk](https://www.youtube.com/watch?v=vdIVMwV9MCk)
+- The files necessary to patch WSUS: [http://i430vx.net/files/wsusstuff/](http://i430vx.net/files/wsusstuff/)
 - A curated list of software that runs on XP, including updaters: [https://skipster1337.github.io/posts/windows-software.html](https://skipster1337.github.io/posts/windows-software.html)
 
 
