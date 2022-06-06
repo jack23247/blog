@@ -10,6 +10,8 @@ tags:
  - windows-xp
 ---
 
+> [2022-06-06:jack23247](jack23247@pm.me) Good news and bad news: the system has suffered a critical failure due to a faulty PSU, that rendered the OS unbootable: funnily enough, the failure mode was...  corruption of `MSVCP600.DLL`! I was able to recover my data and to reinstall the OS, this time using the AHCI driver instead. Keep in mind that, no matter which driver revision I used, sometimes the I/O perfomance jitters. If you have such a system and know a solution, please get in touch!  
+
 I have a little gaming system built around an ITX motherboard with an integrated nVidia GPU that I use for Windows XP retrogaming. The system is quite nice and, on paper, should enable me to enjoy a lot of classic PC-only games without adding a dime to the bill. The system is configured as follows:
 
 #### Specs

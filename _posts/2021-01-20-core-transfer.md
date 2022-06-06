@@ -26,7 +26,7 @@ However, the tight integration comes at a cost: for starters, if you need spare 
 
 The older machines (CISC ones) go even further: every CPU card has something called Vital Product Data (VPD), a bunch of numbers that is unique to that card and factory paired to the front panel. This means that the pairing information is stored on both battery-backed RAM and on the disk: both things go bad at the same time you lose the pairing info and end up with a very heavy door stopper. Newer machines are somewhat more relaxed, but if you lose your LICKEYs you're bound to the 70 days cycle anyway.
 
-> [2020-03-19:jack23247](mltjcp64+blog@gmail.com) Ok, so, I got the whole VPD thing incorrect: it's way more complicated than that and not limited to CISC hardware, so even, say, a 270 or a POWER4 iSeries might get nuked (I still don't get the full picture so don't quote me on this). Also, later machines (POWER3+ probably) have a dedicated bootstrap processor housed on a "VPD card" which kills the system if it goes bad. <br>Neat.
+> [2020-03-19:jack23247](jack23247@pm.me) Ok, so, I got the whole VPD thing incorrect: it's way more complicated than that and not limited to CISC hardware, so even, say, a 270 or a POWER4 iSeries might get nuked (I still don't get the full picture so don't quote me on this). Also, later machines (POWER3+ probably) have a dedicated bootstrap processor housed on a "VPD card" which kills the system if it goes bad. <br>Neat.
 
 ## The Model 150
 
