@@ -9,9 +9,9 @@ tags:
  - data-general
 ---
 
-> Welcome to the first instalment in this new series of articles titled
-> "Quarterly Book Review". In this series I'll (randomly) pick a book I've read
-> either recently or I'm very fond of and try my best to review it.
+Welcome to the first instalment in this new series of articles titled
+"Quarterly Book Review". In this series I'll (randomly) pick a book I've read
+either recently or I'm very fond of and try my best to review it.
 
 > Please note that the "Quarterly" part may or may not be truthful.
 
