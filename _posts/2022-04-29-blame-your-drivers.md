@@ -49,6 +49,3 @@ If you have this board, here are some useful links:
 - A video describing how to install USP4: [https://www.youtube.com/watch?v=vdIVMwV9MCk](https://www.youtube.com/watch?v=vdIVMwV9MCk)
 - The files necessary to patch WSUS: [http://i430vx.net/files/wsusstuff/](http://i430vx.net/files/wsusstuff/)
 - A curated list of software that runs on XP, including updaters: [https://skipster1337.github.io/posts/windows-software.html](https://skipster1337.github.io/posts/windows-software.html)
-
-
-

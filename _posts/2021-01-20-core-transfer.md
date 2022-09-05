@@ -92,4 +92,3 @@ I could (thankfully) login with the default `QSECOFR` (Security Officer aka `roo
 ## Conclusions
 
 And that's it: I reverted the machine to its original configuration and was indeed able to IPL it without any hiccups, while being incredibly excited by the notion that I can swap a disk with another (identical) one without bricking my weird little machine. This is why I find the AS/400 so interesting: everything is different enough from any other computer system you've used for you not to be able to take anything for granted, but if you play around with them long enough you'll eventually build some solid skills.
-

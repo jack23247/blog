@@ -30,7 +30,7 @@ The 7248-100 is a PReP machine, so it does not have the nice OpenFirmware ROM li
 | `F5` | No                | Force Floppy Boot            |
 
 > The 7248-100 can boot from a TFTPD server, you can use the `F2` menu to choose the parameters. 
->
+> 
 > To boot Windows NT you need a special boot diskette.
 
 Booting AIX is as simple as letting the computer boot or bringing up the boot menu with `F2` and selecting the CD-ROM as a boot device.
@@ -96,13 +96,12 @@ Filesystem    512-blocks      Free %Used    Iused %Iused Mounted on
 /dev/hd3           24576     23384    5%       30     1% /tmp
 /dev/hd1            8192      7840    5%       20     2% /home
 #
-
 ```
 
 1. `df` has no `h` (human-readable) flag 
-1. Filesystem size is specified in *amount of 512-byte blocks*
-1. `/usr` is almost full
-1. `/home` is 4MB big
+2. Filesystem size is specified in *amount of 512-byte blocks*
+3. `/usr` is almost full
+4. `/home` is 4MB big
 
 What the heck? How do I enlarge filesystems? Thanks to [this guy](http://geekswing.com/geek/how-to-expand-a-filesystem-in-aix-df-lsvg-chfs/) I was able to start poking around (I had not installed man pages yet). 
 
@@ -157,4 +156,3 @@ You can add system software via either SMIT or the toolbox application. System s
 ## To Sum Up
 
 AIX is quite a strange *nix system, yet it's fun to use. The numerous differences make it a fun diversion even from classic SysV unices like Solaris and HP-UX
-

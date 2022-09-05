@@ -69,4 +69,3 @@ Sadly, at this point things took a turn for the worse: all was well, the system 
 And this is the end of the story, for now: I have not confirmed what went awry in the PSU because it's riveted and not supposed to be opened for repairs at all, so I can either scour eBay for a cheap and (hopefully) working parts bin PSU or decide to open it up and attempt to repair it. 
 
 Thus, I hope this article is only "part one" of a series where I'm able to put the system back online. 
-

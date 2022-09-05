@@ -264,4 +264,3 @@ Please make a choice (0 - 10), or press h or ? for help:
 ```
 
 And we're done! Just follow the on-screen prompts as usual: from this point, it's a completely standard Solaris installation procedure.
-

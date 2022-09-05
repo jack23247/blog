@@ -204,6 +204,3 @@ Installing PTFs is a straightforward, automated process, and it's described quit
 ## Conclusions
 
 Installing OS/400 might seem a daunting process at first, but the excellent documentation and the easy to use panel-driven interface makes it pretty easy for anyone familiar with basic midrange terminology to dive into. Of course, as with any computer system, there are some pitfalls and caveats that might make your life a bit harder: I hope this guide may help you detecting and avoiding them, or at the very least that it's been a good read!
-
-
-

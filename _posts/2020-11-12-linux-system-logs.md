@@ -22,12 +22,12 @@ Presented here is a synthesis of the most useful log files, and of the many ways
 
 Logs are kept in `\var\log`, here's some notable examples:
 
-| Name       | Description                                                  |
-| ---------- | ------------------------------------------------------------ |
+| Name       | Description                                                          |
+| ---------- | -------------------------------------------------------------------- |
 | `boot.log` | A log that records everything that happened during the boot sequence |
-| `dmesg`    | A log file used by the omonimous tool                        |
-| `kern.log` | A specific log for kernel events                             |
-| `syslog`   | A global system log that records virtually everything        |
+| `dmesg`    | A log file used by the omonimous tool                                |
+| `kern.log` | A specific log for kernel events                                     |
+| `syslog`   | A global system log that records virtually everything                |
 
 Let's try and analyze all of them.
 

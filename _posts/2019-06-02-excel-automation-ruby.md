@@ -208,4 +208,3 @@ IF %COMPUTERNAME%==DOOM002 SET BACKUPNAME=ROMERO.JOHN_QUAKE002
 ## Wrapping up
 
 Ruby feels like the optimal language to quickly perform text transformation and line operations on text files: it's powerful enough to be up to up to the most tedious tasks, yet simple enough to whip up a quick-and-dirty solution that gets the job done in mere minutes.
-
