@@ -1,6 +1,6 @@
 ---
 title: "Installing an OS to a physical hard disk using a VM"
-date:
+date: 2022-09-05T15:00:00+02:00
 categories:
  - hardware
 tags:
