@@ -66,6 +66,16 @@ Using the tabulation key, navigate to the **Select** button: you'll notice that 
 
 ### Building the kernel
 
+> ***Note***
+>
+> You'll probably need to run the following:
+>
+> ```
+> scripts/config --disable SYSTEM_TRUSTED_KEYS
+> ```
+>
+> For reasons I've not been able to confirm. See [https://www.mail-archive.com/kernelnewbies@kernelnewbies.org/msg21536.html](https://www.mail-archive.com/kernelnewbies@kernelnewbies.org/msg21536.html).
+
 This is by far the least complicated step:
 
 ```
