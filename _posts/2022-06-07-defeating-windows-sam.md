@@ -1,5 +1,5 @@
 ---
-title: "Defeating Windows's SAM"
+title: "Defeating Windows' SAM"
 date: 2022-06-07T00:10:00+02:00
 categories:
  - misc
