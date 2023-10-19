@@ -1,6 +1,6 @@
 ---
 title: "~~Quarterly~~ Book Review - When We Cease to Understand the World"
-date: 2022-06-06T19:15:00+02:00
+date: 2023-10-19T10:19:00+0200 ## date +%Y-%m-%dT%H:%M:%S%z
 categories:
  - book-review
 tags:
@@ -11,7 +11,7 @@ tags:
 
 Dear readers: life has been busier than ever. My hobbies have escalated dramatically and I've taken up projects such as rewiring the basement, fabricating my own pieces of furniture and changing the head gasket on my car. Of course, time and energy are not infinite and I had to reduce my efforts in other areas of interest, like playing with old computers and, thus, writing articles for this blog.
 
-<!-- The truth is that I had reached somewhat of a dead end. While I've taken up as many computers and projects as I could, I never felt satisfied with the result. Collecting weird and rare machines is incredibly stressful, as spares are almost non-existent or horribly expensive, and I can't take the pressure anymore (or rather, I see no reason to). I am planning to hold on to most of what I have, in the hope of being able one day to either open a museum or donate everything to someone I trust my stuff with. In the meantime, I have a lot of fun in sourcing components for my less weird machines and rebuilding them with outlandish specs! --> 
+<!-- The truth is that I had reached somewhat of a dead end. While I've taken up as many computers and projects as I could, I never felt satisfied with the result. Collecting weird and rare machines is incredibly stressful, as spares are almost non-existent or horribly expensive, and I can't take the pressure anymore (or rather, I see no reason to). I am planning to hold on to most of what I have, in the hope of being able one day to either open a museum or donate everything to someone I trust my stuff with. In the meantime, I have a lot of fun in sourcing components for my less weird machines and rebuilding them with outlandish specs! -->
 
 Recently, however, someone I hold very dear has lent me a book that's been refreshing enough for me to pick up the keyboard once again (so I doubly thank you). This quarter's book is: **When We Cease to Understand the World** by Benjamín Labatut.
 
