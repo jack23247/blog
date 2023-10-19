@@ -1,10 +1,25 @@
 # Installing SCO UnixWare 7.1.4 in qemu
 
+Okay, this one's a quickie. I have taken the habit of writing down install notes because I hate having to relearn this stuff over and over again, so here we are.
 
+## Rationale
+
+I like weird Unix[^unices] Systems and, sometimes, it seems like I enjoy ~~hurting~~ challenging myself.
+
+UnixWare is a weird beast. It's one of the longest standing, traditional SVR Unix systems and it was essentially born on x86. UnixWare and its sibling OpenServer have passed hands several times, being caught in, buyouts, bankrupcies and the idiotic SCO vs The World[^kakyoin] lawsuits. Nowadays, they are probably the only surviving proprietary Unix distribution, along with AIX.
+
+I have no idea what those systems were and are used for, besided them being [behind Pizza Hut's PizzaNet](https://www.santacruztechbeat.com/2016/09/15/back-sco-pizza-hut-made-headlines-pizzanet/), the first system of its kind. Nowadays, they are a funny relic from another era of computing, and they are a solid choice for older computers you want to run *nix on.
+
+[^unices] What's the correct plural form of Unix? Unices? Does it even have one? And how is it supposed to be capitalized? UNIX?
+
+[^kakyoin] And we all know how that went.
 
 ## Set-up
 
+Here's the configuration I used for setting up the VM:
+
 ```
+$ cat bringup.sh
 qemu-img create -f qcow2 hd0.qcow2 8G
 export CD_ROM_IMAGE uw714.CD1.Jun2008.iso
 export CDR_OR_HD0 d # d->CD-ROM, c->HD0
@@ -27,19 +42,17 @@ UnixWare seems to be finicky with the IDE emulation (in both qemu and VirtualBox
 
 You'll need:
 
-- uw714.CD1.Jun2008.iso
-- uw714.CD2.iso (Disc02 - Base Operating System Upgrade CD.iso)
-- uw714mp4.iso 
+- `uw714.CD1.Jun2008.iso` - This is the disc you'll be booting from.
+- `uw714.CD2.iso`, also called `Disc02 - Base Operating System Upgrade CD.iso` - This disc contains some additional software that might be useful.
+- `uw714mp4.iso` - This disc contains the Maintenance Pack 4, that will upgrade your system.
 
-Recommended:
+I also recommend you locate the following:
 
-- skunkware713.iso (Disc04 - Linux RPM CD from 7.1.3.iso)
-- udk714.iso (Disc05 - UnixWare-OpenServer Development Kit CD.iso)
-- uw714mp3.iso
+- `skunkware713.iso`, also called `Disc04 - Linux RPM CD from 7.1.3.iso` - This disc contains a lot of precompiled OSS software, although it's a bit old. 
+- `udk714.iso`, also called `Disc05 - UnixWare-OpenServer Development Kit CD.iso` - This disc contains the UnixWare SDK.
+- `uw714mp3.iso` - This disc contains the Maintenance Pack 4, that will upgrade your system.
 
-Optional:
-
-All of the other CD images.
+I've found all of the other disc images to be completely optional.
 
 ### Procedure
 
