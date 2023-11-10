@@ -1,12 +1,10 @@
-# Spectre
+# Speculative Execution Side Channel Attacks (Spectre)
 
 Side-Channel Attacks are a class of exploits that use speculative execution as a mean to exfiltrate users' data by tricking the processor into executing an illegal sequence of instruction (also called *Transient Instructions*) by exploiting intrinsic flaws of the functional units of the processor.
 
 This report will cover the "original" Side-Channel Attacks, namely Spectre-v1, Spectre-v2, and Meltdown.
 
-## Speculative Execution Side Channel Attacks
-
-### Overview
+## Overview
 
 **Speculative Execution Side Channel Attacks** (also known as **Spectre**) are a family of exploits that rely on the fact that some conditional instructions in modern CPUs use specific hardware components called *Indirect Branch Predictors*, which are fundamentally flawed. These functional units essentially try to guess the position of the Program Counter after a branching point and start executing instructions *speculatively*, that is without knowing if they'll actually be valid.
 
@@ -44,16 +42,29 @@ The execution of the attack is split into several phases:
 
 We will discuss each phase in more detail when commenting the code.
 
+#### Proof-of-Concept
+
+The original Spectre paper gives a
+
 ### Spectre-v2
 
 
-### Mitigations
+## Use case: the NetSpectre attack
 
-Mitigations for Spectre attacks do exist in both software (Retpolines), firmware (Microcode Updates), and hardware (IBRS). In this section we will discuss a few specific examples, why they are relevant
+https://martinschwarzl.at/media/files/netspectre.pdf
 
-### Notable Examples of Vulnerable CPUs
+## Notable Examples of Vulnerable CPUs
 
-### Impact of Mitigations on Performance
+The Spectre vulnerabilities seem to be an industry-wide issue, as it affects most of the prominent high-performance CPUs on the market. The Linux Kernel documentation cites the following:
+
+- Intel Core, Atom, Pentium, and Xeon processors
+- AMD Phenom, EPYC, and Zen processors
+- IBM POWER and zSeries processors
+- Higher end ARM processors
+- Apple CPUs
+- Higher end MIPS CPUs
+
+It shall be noted that, since the discovery of the vulnerabilities, most silicon vendors seem to have implemented hardware or microcode fixes for Spectre.
 
 ### Spectre and Simultaneous Multithreading (SMT)
 
@@ -67,9 +78,29 @@ Since this is an intrinsic hardware feature, there are essentially no mitigation
 
 More modern CPUs use what Intel calls the Single-Threaded IBP (STIBP) to resolve this issue on the hardware level. The STIBP is a non-shared component that physically isolates the BPBs for each logical processor. <!-- TODO: Verify -->
 
+## Mitigations
+
+Mitigations for Spectre attacks do exist in both software (Retpolines), firmware (Microcode Updates), and hardware (IBRS). In this section we will discuss a few specific examples, why they are relevant
+
+### Impact of Mitigations on Performance
+
+https://www.phoronix.com/review/3-years-specmelt/9
+
+Seems to be quite relevant for older processors. Not so sure about newer ones with actual hw fixes.
+
+
+
+
+### CVE List
+
+| CVE           |                         |            |
+| :------------ | ----------------------- | ---------- |
+| CVE-2017-5753 | Bounds Check Bypass     | Spectre-v1 |
+| CVE-2017-5715 | Branch Target Injection | Spectre-v2 |
 
 ## Sources
 
 - Intel. (2021, May 26). Speculative Execution Side Channel Mitigations. www.intel.com. Retrieved November 8, 2023, from [https://www.intel.com/content/www/us/en/developer/articles/technical/software-security-guidance/technical-documentation/speculative-execution-side-channel-mitigations.html](https://www.intel.com/content/www/us/en/developer/articles/technical/software-security-guidance/technical-documentation/speculative-execution-side-channel-mitigations.html)
 - IBM. (2021, September 15). How-to disable/enable Spectre/Meltdown mitigaton on POWER9 Systems. ibm.com. Retrieved November 8, 2023, from [https://www.ibm.com/support/pages/node/715841](https://www.ibm.com/support/pages/node/715841)
 - FreeBSD. (2022, February 10). SpeculativeExecutionVulnerabilities - FreeBSD Wiki. wiki.freebsd.org. Retrieved November 8, 2023, from [https://wiki.freebsd.org/SpeculativeExecutionVulnerabilities](https://wiki.freebsd.org/SpeculativeExecutionVulnerabilities)
+- Linux Kernel Developers. (n.d.). Spectre Side Channels — The Linux Kernel  documentation. www.kernel.org. Retrieved November 9, 2023, from [https://www.kernel.org/doc/html/latest/admin-guide/hw-vuln/spectre.html](https://www.kernel.org/doc/html/latest/admin-guide/hw-vuln/spectre.html)
