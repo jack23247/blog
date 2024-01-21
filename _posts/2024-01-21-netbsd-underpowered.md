@@ -16,7 +16,7 @@ It's no secret I have a knack for weird and generally useless computing devices.
 <table style="width: 100%">
 <tr>
 <td><img src="https://raw.githubusercontent.com/jack23247/blog/master/img/raspberry-pi-logo-1.png" alt="rpi" style="height: 7em;" /></td>
-<td><img src=".https://raw.githubusercontent.com/jack23247/blog/master/img/NetBSD.png" alt="netbsd" style="height: 7em;" /></td>
+<td><img src="https://raw.githubusercontent.com/jack23247/blog/master/img/NetBSD.png" alt="netbsd" style="height: 7em;" /></td>
 <td><img src="https://raw.githubusercontent.com/jack23247/blog/master/img/via_eden-1_6648_1.png" alt="eden" style="height: 7em;" /></td>
 </tr>
 </table>
@@ -257,13 +257,6 @@ Because, why not?
 <b>             :Ms</b>
 <b>              :Ms</b>
 </pre>
-
-#### Useful links
-
-https://wiki.netbsd.org/ports/evbarm/raspberry_pi/
-https://www.unitedbsd.com/d/6-netbsd-a-little-guide-for-newcomers
-https://netbsd.org/docs/pkgsrc/using.html#using-pkg
-https://wiki.netbsd.org/tutorials/how_to_set_up_per-user_timezones/
 
 ## IGEL D-210
 
@@ -548,3 +541,11 @@ $ dd if=/dev/zero of=test.file bs=512 count=1000 oflag=dsync
 |              |
 
 The IGEL is quite a bit faster (34.4% on average) than the Raspberry Pi, but it is also beefier and it consumes more power. Overall, it feels snappier to use, but not by much.
+
+## Useful Links
+
+- [NetBSD.org -- NetBSD/evbarm on Raspberry Pi](https://wiki.netbsd.org/ports/evbarm/raspberry_pi/)
+- [UnitedBSD Forums -- NetBSD - A little guide for newcomers](https://www.unitedbsd.com/d/6-netbsd-a-little-guide-for-newcomers)
+- [The pkgsrc user's guide -- Using binary packages](https://netbsd.org/docs/pkgsrc/using.html#using-pkg)
+- [NetBSD Wiki -- how to set up per-user timezones](https://wiki.netbsd.org/tutorials/how_to_set_up_per-user_timezones/)
+- [linuxreviews.org -- HOWTO Test Disk I/O Performance](https://linuxreviews.org/HOWTO_Test_Disk_I/O_Performance)
