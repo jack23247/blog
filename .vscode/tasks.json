@@ -1,0 +1,28 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Create PDF with Pandoc",
+            "type": "shell",
+            "command": "pandoc ${file} -o ${file}.pdf",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+            // Dependencies: pandoc, pdflatex
+        },
+        {
+            "label": "Markdown to HTML with Pandoc",
+            "type": "shell",
+            "command": "pandoc ${file} -o ${file}.html",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build"
+            }
+            // Dependencies: pandoc, pdflatex
+        }
+    ]
+}
