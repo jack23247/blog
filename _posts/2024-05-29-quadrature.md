@@ -18,10 +18,10 @@ The RQE uses a combination of an indexing disk and two sets of sensor to produce
 
 The pictures below show a Magnetic and an Optical RQE. In the first picture, the two angled ICs placed on the bottom part of the PCB are the Hall Effect Sensors, while in the second picture, the two plastic fixtures with wires house the photodiodes and the LEDs.
 
-<img src="https://www.prohobi.net/ps2018/761-large_default/magnetic-encoder-pair-kit-for-micro-metal-gearmotors-12-cpr.jpg" alt="magnetic-rqd" style="height: 30em;" />
+<img src="https://www.prohobi.net/ps2018/761-large_default/magnetic-encoder-pair-kit-for-micro-metal-gearmotors-12-cpr.jpg" alt="magnetic-rqd" style="width: 20em;" />
 
 
-<img src="https://electronics360.globalspec.com/images/assets/289/11289/Encoder.jpg" alt="optical-rqe" style="height: 30em;" />
+<img src="https://electronics360.globalspec.com/images/assets/289/11289/Encoder.jpg" alt="optical-rqe" style="width: 30em;" />
 
 
 ## Encoding Speed and Direction
@@ -39,7 +39,7 @@ The following animations show how rotation is encoded using two sensors and an i
 
 <img src="https://lastminuteengineers.b-cdn.net/wp-content/uploads/arduino/rotary-encoder-working-animation.gif" alt="rotary-enc-gif" style="width: 35em;" />
 
-<img src="http://www.ee.nmt.edu/~rhb/ee231/labs2000/lab12/animation.gif" alt="chan-gif" style="height: 15em;" />
+<img src="https://raw.githubusercontent.com/jack23247/blog/master/img/enc-chan.gif" alt="chan-gif" style="width: 25em;" />
 
 ## Decoding an RQE in software
 
@@ -51,7 +51,7 @@ The [CoderBot platform](https://dev.coderbot.org/), for example, uses a Raspberr
 
 A state machine can be used to represent the Quadrature signal at any time; if we use a 2-bit word to represent the two channels, where channel A is the MSB, the following state transitions apply.
 
-<img src="https://raw.githubusercontent.com/jack23247/blog/master/img/fsm_rqe.png" alt="fsm-rqe" style="height: 35em;" />
+<img src="https://raw.githubusercontent.com/jack23247/blog/master/img/fsm_rqe.png" alt="fsm-rqe" style="width: 20em;" />
 
 If channel A *leads* channel B, the motor is spinning clockwise[^3], and vice versa. Transition between states `00` and `11`, and between `10` and `01` are not valid: this can be easily detected by ensuring that only one bit changes at a time. Moreover, since we're only interested in counting full ticks (i.e. the number of peaks, which is equivalent to the number of rising edges) we only register a tick when the channels show different logic levels by XORing the two channels and incrementing or decrementing the number of ticks, depending on the direction, only if they do.
 
