@@ -3,15 +3,13 @@ permalink: /about/
 title: "About"
 ---
 
-Hello! I'm Jacopo, an MSc Student in Computer Science at *Università Degli Studi di Milano-Bicocca* who's currently working as a technical advisor on an autonomous driving system project. You can reach me at:
+Hello! I'm Jacopo, an MSc grad in Computer Science at *Università Degli Studi di Milano-Bicocca* who's currently working as a researcher in the areas of Embedded Systems and Micromobility. You can reach me at: [jack23247@pm.me](mailto:jack23247@pm.me).
 
-[jack23247@pm.me](mailto:jack23247@pm.me),
-https://github.com/jack23247.
+I have an interest in computer architecture, system administration, networking, real-time systems and operating systems design in general. Thanks to my experience with retrocomputers I've had the opportunity to experience many different ecosystems, including UNIX-like systems, IBM midrange and mainframe systems and Windows NT. I like programming in C but I know several other languages, such as C++, Java and Ruby. I also use Bash and Windows' Command Processor for scripting.
 
-I have an interest in computer architecture, system administration, networking, real-time systems and operating systems design in general. Thanks to my experience with old computers I've had the opportunity to experience many different ecosystems, including but not limited to: Linux, BSD, Solaris, MS-DOS, Windows, OpenVMS, OS/400, OS/370 and VM/370.
+This blog is mainly devoted to collecting ramblings and random projects that aren't involved enough to have their own repository, or don't fall into a defined category.
 
-My first foray into programming was via scripting languages like CMD, PowerShell, Python and Ruby. Today I'm quite fond of C and C++ and I've had the opportunity to use LISP, Prolog and Java for my programming courses.
-
+<!---
 I've decided to stop collecting random stuff because it's getting way out of hand (I have too many AS/400s!), but if you have one of the following items you want to sell, please get in contact as I'm sure we can arrange something.
 
 - A small boat
@@ -29,3 +27,4 @@ I've decided to stop collecting random stuff because it's getting way out of han
 - Any weird system that runs Unix (the Olivetti LSX comes to mind)
 
 If you're into the retrocomputing scene you'll notice that most of these are extremely specific, rare or downright unobtanium: if I can't find something, then it can't clutter my basement! :wink:
+-->

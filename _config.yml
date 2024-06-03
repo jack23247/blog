@@ -19,7 +19,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   jack23247's blog
 twitter_username:
 github_username: jack23247
-minimal_mistakes_skin: air
+minimal_mistakes_skin: contrast
 search: true
 
 # Build settings
@@ -57,8 +57,8 @@ plugins:
 
 author:
   name		: "jack23247"
-  avatar	: "/me.png"
-  bio    	: "Computer Science student @ Università degli Studi di Milano-Bicocca"
+  avatar	: "/garpipe2.png"
+  bio    	: "Researcher @ Università degli Studi di Milano-Bicocca"
   location	: "Milano, Italy"
   uri		: "https://jack23247.github.io/blog/"
   home		: "https://jack23247.github.io/blog/"
