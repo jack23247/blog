@@ -1,5 +1,5 @@
 ---
-title: "Decoding Rotary Quadrature Encoders in Software"
+title: "Reading Incremental Rotary Encoders in Quadrature in Software via GPIO"
 date: 2024-05-29T13:20:00+02:00 ## date +%Y-%m-%dT%H:%M:%S%z
 categories:
  - embedded
@@ -10,44 +10,46 @@ tags:
  - software
 ---
 
-Rotary Quadrature Encoders (RQEs) are a particular type of incremental encoder that utilize two out-of-phase channels to carry information about the direction and speed of motion of a rotating shaft, such as the output of a motor or the scrolling of a mouse wheel's axis.
+Incremental Encoders (IE) utilize two out-of-phase channels to carry information about the direction and speed of motion of a rotating shaft, such as the output of a motor or the scrolling of a mouse wheel's axis.
 
-## Building an RQE
+## Building an IE
 
-The RQE uses a combination of an indexing disk and two sets of sensor to produce two square-wave signals: the sensors must be placed far enough from each other so that the two waves will be ±90° out-of-phase when the speed of the measured shaft is constant (hence the term "Quadrature"). Such a device may be built using LEDs, photodiodes, and an indexing disk to create pulses, or by placing hall effect sensors near a magnetized disk and looking at magnetic flux changes as the disk rotates.
-
-The pictures below show a Magnetic and an Optical RQE. In the first picture, the two angled ICs placed on the bottom part of the PCB are the Hall Effect Sensors, while in the second picture, the two plastic fixtures with wires house the photodiodes and the LEDs.
-
-<img src="https://www.prohobi.net/ps2018/761-large_default/magnetic-encoder-pair-kit-for-micro-metal-gearmotors-12-cpr.jpg" alt="magnetic-rqd" style="width: 20em;" />
+The IE uses a code disk[^0] and two sensors to produce two square-wave signals: the sensors must be properly placed so that the two waves will be ±90° out-of-phase (hence the term "Quadrature"). Such a device may be built using LEDs, photodiodes, and a code disk to create pulses, or by placing hall effect sensors near a disk made of ferromagnetic materials with alternatively magnetized sectors, and looking at magnetic flux changes as the disk rotates.
 
 
-<img src="https://electronics360.globalspec.com/images/assets/289/11289/Encoder.jpg" alt="optical-rqe" style="width: 30em;" />
+[^0]: The code disk, or code wheel, is a wheel that presents slits on the outer circumference. [This article](https://www.analogictips.com/rotary-encoders-part-1-optical-encoders/) and [its follow-up](https://www.analogictips.com/rotary-encoders-part-2-magnetic-encoders/) expand on the concept of the Incremental Encoder and show how the code wheel works.
 
+The pictures below show a Magnetic and an Optical IE. In the first picture, the two angled ICs placed on the bottom part of the PCB are the Hall Effect Sensors, while in the second picture, the two plastic fixtures with wires house the photodiodes and the LEDs.
+
+<img src="https://www.prohobi.net/ps2018/761-large_default/magnetic-encoder-pair-kit-for-micro-metal-gearmotors-12-cpr.jpg" alt="magnetic-ie" style="width: 20em;" />
+<img src="https://electronics360.globalspec.com/images/assets/289/11289/Encoder.jpg" alt="optical-ie" style="width: 30em;" />
 
 ## Encoding Speed and Direction
 
-If we simply wanted to measure a device's rotational speed, using an RQE would be overkill: a single indexing hole and a photodiode would suffice[^1], as an impulse would be generated each time the indexing hole passes over the sensor; the speed can be derived from this signal by measuring the frequency of the resulting square wave.
+If we simply wanted to measure a device's rotational speed, using an IE would be overkill: a single slit and a photodiode would suffice[^1], as an impulse would be generated each time the slit passes over the sensor; the speed can be derived from this signal by measuring the frequency of the resulting square wave.
 
 [^1]: This method was, for example, used in 5¼" floppy disk drives to measure the speed of rotation of the medium.
 
 This simplistic approach, however, has a few drawbacks:
 
-1. **Low granularity** - Having a single index hole across a circumference means infrequent and potentially inconsistent updates if the "spinny bits" experience sudden changes in velocity or direction, which can only be inferred by looking at how the last _n_ speed measurements differ from each other. This can be remedied by adding more evenly-spaced indexing holes across the circumference of the measured device, keeping in mind to divide the frequency of the resulting square wave by the number of indexing holes to obtain the effective rate of rotation.
-2. **No directionality** - While adding more indexing holes can help with granularity, it won't be enough if the application needs to determine the direction of rotation, as the pulses generated while moving in either direction will be indistinguishable from each other. RQEs solve this problem by adding a second channel which, by construction, is guaranteed to be ±90° out-of-phase from the first one: this property allows us to easily determine the direction of rotation by looking at which channel is *leading* (i.e. produces the first impulse).
+1. **Low granularity** - Having a single slit along a circumference means infrequent and potentially inconsistent updates if the "spinny bits" experience sudden changes in velocity or direction, which can only be inferred by looking at how the last _n_ speed measurements differ from each other. This can be remedied by adding more evenly-spaced slits along the circumference of the disk, keeping in mind to divide the frequency of the resulting square wave by the number of slits, to obtain the effective rate of rotation.
+2. **No directionality** - While adding more slits can help with granularity, it won't be enough if the application needs to determine the direction of rotation, as the pulses generated while moving in either direction will be indistinguishable from each other. IEs solve this problem by adding a second channel which, by construction, is guaranteed to be ±90° out-of-phase from the first one: this property allows us to easily determine the direction of rotation by looking at which channel is *leading* (i.e. changes first).
 
-The following animations show how rotation is encoded using two sensors and an indexing disk.
+The following animations show how rotation is encoded using two sensors and a code disk.
 
 <img src="https://lastminuteengineers.b-cdn.net/wp-content/uploads/arduino/rotary-encoder-working-animation.gif" alt="rotary-enc-gif" style="width: 35em;" />
 
 <img src="https://raw.githubusercontent.com/jack23247/blog/master/img/enc-chan.gif" alt="chan-gif" style="width: 25em;" />
 
-## Decoding an RQE in software
+## Decoding an IE in software
 
-While many modern microcontrollers provide hardware units capable of decoding high-frequency Quadrature signals without CPU intervention[^2], other commonly available devices that only have GPIO ports at their disposal can be used to decode signals generated by an RQE in software as long as the frequency of the square waves isn't prohibitively high (i.e. the number of ticks per revolution is low and/or).
+> In this section we refer only to the approach called "Quadrature Reading" or "Quadrature Handling", which is not based on the level (high/low) of the logic value on each channel at any given time, but rather on the alternation of the square-wave signals' edges.
+
+While many modern microcontrollers provide hardware units capable of decoding high-frequency Quadrature signals without CPU intervention[^2], other commonly available devices that only have GPIO ports at their disposal can be used to decode signals generated by an IE in software, as long as the frequency of the square waves isn't prohibitively high (i.e. the number of ticks per revolution is low enough w.r.t. the clock of the microprocessor) and the electric signal output by the encoder is compatible with the logic levels accepted by the GPIO port.
 
 [^2]: The STMicroelectronics MCUs, for example, allow the programmer to use a timer as a Quadrature decoder. Source: [STM32G4 GPTIM Presentation Notes pp.10-17](https://www.st.com/resource/en/product_training/STM32G4-WDG_TIMERS-General_Purpose_Timer_GPTIM.pdf)
 
-The [CoderBot platform](https://dev.coderbot.org/), for example, uses a Raspberry Pi 3 to control a small robot using two independent wheels; speed and direction of each wheel is tracked by a magnetic RQE placed on the output shaft of the motor[^4]. The encoder has 16 steps per revolution and the wheel uses a 1:120 transmission ratio. Each encoder's A and B channels are directly connected to a GPIO input on the Raspberry Pi; the corresponding pins are used as inputs and a callback function is registered when an edge is detected using the [`libpigpio`](https://abyz.me.uk/rpi/pigpio/cif.html) library.
+The [CoderBot platform](https://dev.coderbot.org/), for example, uses a Raspberry Pi 3 to control a small robot using two independent wheels; speed and direction of each wheel is tracked by a magnetic IE placed on the output shaft of the motor[^4]. The encoder has 16 steps per revolution and the transmission ratio is 1:120, which gives a reasonable amount of positional values per turn. Each encoder's A and B channels are directly connected to a GPIO input on the Raspberry Pi; the corresponding pins are used as inputs and a callback function is registered when an edge is detected using the [`libpigpio`](https://abyz.me.uk/rpi/pigpio/cif.html) library.
 
 [^4]: Documentation for the DFRobot FIT0450 motor assembly used by the CoderBot can be found [here](https://wiki.dfrobot.com/Micro_DC_Motor_with_Encoder-SJ01_SKU__FIT0450).
 
@@ -57,9 +59,9 @@ The following diagram illustrates all valid state transitions of a state machine
 
 If channel A *leads* channel B, the motor is spinning clockwise[^3], and vice versa. Note how transitions between states `00` and `11`, and between `10` and `01` are not valid: this can be easily detected by ensuring that only one bit changes at a time.
 
-[^3]: We may say clockwise, but it really depends on how the sensors are wired.
+[^3]: We may say clockwise, but it really depends on how the sensors are wired, from which side you look at the motor, etc.
 
-`libpgpio` allows the programmer assign a callback function, which is also referred to as an Interrupt Service Routine (ISR), to an event (i.e. rising, falling or both edges) on a specific GPIO pin. The ISR must be registered using either `gpioSetISRFunc()` or [`gpioSetISRFuncEx()`](https://abyz.me.uk/rpi/pigpio/cif.html#gpioSetISRFuncEx): the only difference between them is that the latter allows passing a pointer to an arbitrary data structure that may be updated. The following example shows how to register a function as a callback and unregister it when you're done; keep in mind that the callback's prototype must be exactly as shown. Specifying a timeout in milliseconds allows the library to abort the execution of an ISR in case it's taking too long.  
+`libpgpio` allows the programmer to assign a callback function, which is also referred to as an Interrupt Service Routine (ISR), to an event (i.e. rising, falling or both edges) on a specific GPIO pin. The ISR must be registered using either `gpioSetISRFunc()` or [`gpioSetISRFuncEx()`](https://abyz.me.uk/rpi/pigpio/cif.html#gpioSetISRFuncEx): the only difference between the two is that the latter allows passing a pointer to an arbitrary data structure that may be updated. The following example shows how to register a function as a callback and unregister it when you're done; keep in mind that the callback's prototype must be exactly as shown. Specifying a timeout in milliseconds allows the library to abort the execution of an ISR in case it's taking too long.  
 
 ```c
 #include <stdlib.h>
