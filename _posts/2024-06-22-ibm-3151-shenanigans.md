@@ -73,7 +73,11 @@ If all went well, you should now be able to use a straight-through DB9 cable to 
 
 ## Connecting to a modern system
 
-While <!--TODO-->
+While modern computer systems don't expect to be connected to a serial terminal at all times (it's not the 80s anymore, maybe you haven't got the memo), the fundamental concepts of UNIX character devices has not changed at all... and a serial terminal is the _quintessential_ character device!
+
+I'll try (and, spoiler, somewhat succeed) in connecting the IBM 3151 to a modern computer, in order to use modern, top-notch software such as `top`, `sh`, `vi` and `ls` from a properly retro computing device, as momma IBM intended. Jokes aside, using a terminal is a somewhat cathartic experience[^1], as you do away with distractions and other modern amenities such as graphics that clutter your field of vision and distract you from the task at hand.
+
+[^1]: Unless you use `emacs-nox`, you vile monster!
 
 ### Connecting to a Linux system
 
