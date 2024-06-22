@@ -1,3 +1,16 @@
+---
+title: "IBM 3151 Shenanigans!"
+date: 2024-06-22T18:00:10+0200 ## date +%Y-%m-%dT%H:%M:%S%z
+categories:
+ - misc
+tags:
+ - retrocomputing
+ - hardware
+ - software
+ - linux
+ - freebsd
+---
+
 I recently got an IBM 3151 ASCII Display Station, which is a (somewhat) VT100-compatible terminal with a nice IBM look and feel to it. My unit has a green tube and closely matches the InfoWindow II Twinax terminals I'm used to, plus it uses a Model M keyboard instead of the crappy rubber-dome keyboards other manufacturers liked to use at the time.
 
 Like all things IBM, however, the terminal is picky: you can't use it in 3-wire mode, as it requires signals such as Data Set Ready (DSR), Data Terminal Ready (DTR), and Data Carrier Detect (DCD) to work properly. 
