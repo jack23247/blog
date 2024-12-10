@@ -1,0 +1,266 @@
+
+CFE version 1.0.37-8.7 for NGRG 0002 BCM96358 (32bit,SP,BE)
+Build Date: mer dic 17 10:22:13 CET 2008 (antonio@localhost)
+Copyright (C) 2000-2005 Broadcom Corporation.
+
+Boot Address 0xbe000000
+
+Initializing Arena.
+Initializing Devices.
+
+Flash info:
+device_id : ............227E
+meminfo.nsect:..........128
+totalSize:..............1000000
+num_erase_blocks:...... 1
+device_size:............1000000
+
+Parallel flash device: name MX29L128DT, id 0x227e, size 16384KB
+
+Resetting Switch....
+
+CPU type 0x2A010: 300MHz, Bus: 133MHz, Ref: 64MHz
+CPU running TP0
+Total memory: 67108864 bytes (64MB)
+
+Total memory used by CFE:  0x80401000 - 0x80528420 (1209376)
+Initialized Data:          0x8041DE70 - 0x8041FC50 (7648)
+BSS Area:                  0x8041FC50 - 0x80426420 (26576)
+Local Heap:                0x80426420 - 0x80526420 (1048576)
+Stack Area:                0x80526420 - 0x80528420 (8192)
+Text (code) segment:       0x80401000 - 0x8041DE70 (118384)
+Boot area (physical):      0x00529000 - 0x00569000
+Relocation Factor:         I:00000000 - D:00000000
+
+Resetting Secondary CPU...
+
+Board IP address                  : 192.168.1.50:ffffff00
+Host IP address                   : 192.168.1.152
+Gateway IP address                : 192.168.1.1
+Run from flash/host (f/h)         : f
+Default host run file name        : vmlinux
+Default host flash file name      : openrg.img
+Boot delay (0-9 seconds)          : 9
+Board Id (0-6)                    : DWV-S0
+Number of MAC Addresses (1-32)    : 13
+Base MAC Address                  : 02:10:18:01:00:01
+PSI Size (1-64) KBytes            : 24
+Main Thread Number [0|1]          : 0
+
+*** Press any key to stop auto run (9 seconds) ***
+Auto run second count down: 0
+Trying to boot from previous MAIN image (0x80a00000) ...
+Code Address: 0x80A00000, Entry Address: 0x80a00000
+SGP - Flash Kernel Address: 0xBE020100
+SGP - ulImgCrc : 0x1DDBDA85
+SGP - Tag->kernelLen: 0x0029EF3C
+SGP - Flash Kernel Address: 0xBE020100
+SGP - Tag Kernel crc : 0x1DDBDA85 - calculated: 0x1DDBDA85
+SGP - Decompression Kernel length: 0x0029EF2D pucSrc: 0xBE02010C
+Decompression OK!
+Entry at 0x80a00000
+
+Distribution:
+Version: b
+
+Closing network.
+Starting program at 0x80a00000
+[    0.000000] Linux version 5.15.162 (builder@buildhost) (mips-openwrt-linux-musl-gcc (OpenWrt GCC 12.3.0 r24012-d8dd03c46f) 12.3.0, GNU ld (GNU Binutils) 2.40.0) #0 SMP Mon Jul 15 22:14:18 2024
+[    0.000000] Detected Broadcom 0x6358 CPU revision a1
+[    0.000000] CPU frequency is 300 MHz
+[    0.000000] 64MB of RAM installed
+[    0.000000] board_bcm963xx: Boot address 0xbe000000
+[    0.000000] board_bcm963xx: CFE version: 1.0.37-8.7
+[    0.000000] printk: bootconsole [early0] enabled
+[    0.000000] CPU0 revision is: 0002a010 (Broadcom BMIPS4350)
+[    0.000000] board: board name: DWV-S0
+[    0.000000] MIPS: machine is Pirelli A226M-FWB
+[    0.000000] Initrd not found or empty - disabling initrd
+[    0.000000] Primary instruction cache 32kB, VIPT, 2-way, linesize 16 bytes.
+[    0.000000] Primary data cache 16kB, 2-way, VIPT, cache aliases, linesize 16 bytes
+[    0.000000] Zone ranges:
+[    0.000000]   Normal   [mem 0x0000000000000000-0x0000000003ffffff]
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000000000000-0x0000000003ffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000000000000-0x0000000003ffffff]
+[    0.000000] percpu: Embedded 11 pages/cpu s16272 r8192 d20592 u45056
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 16240
+[    0.000000] Kernel command line: rootfstype=squashfs,jffs2 noinitrd console=ttyS0,115200
+[    0.000000] Dentry cache hash table entries: 8192 (order: 3, 32768 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 4096 (order: 2, 16384 bytes, linear)
+[    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
+[    0.000000] Memory: 54624K/65536K available (7142K kernel code, 642K rwdata, 888K rodata, 1304K init, 221K bss, 10912K reserved, 0K cma-reserved)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+[    0.000000] rcu: Hierarchical RCU implementation.
+[    0.000000] rcu:     RCU restricting CPUs from NR_CPUS=2 to nr_cpu_ids=1.
+[    0.000000]  Tracing variant of Tasks RCU enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 10 jiffies.
+[    0.000000] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=1
+[    0.000000] NR_IRQS: 256
+[    0.000000] clocksource: MIPS: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 12741736309 ns
+[    0.000003] sched_clock: 32 bits at 150MHz, resolution 6ns, wraps every 14316557820ns
+[    0.008426] Calibrating delay loop... 299.82 BogoMIPS (lpj=1499136)
+[    0.084928] pid_max: default: 32768 minimum: 301
+[    0.093164] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
+[    0.100837] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
+[    0.124513] rcu: Hierarchical SRCU implementation.
+[    0.131904] smp: Bringing up secondary CPUs ...
+[    0.136546] smp: Brought up 1 node, 1 CPU
+[    0.154814] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.165090] futex hash table entries: 256 (order: 2, 16384 bytes, linear)
+[    0.172777] pinctrl core: initialized pinctrl subsystem
+[    0.183360] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.191802] thermal_sys: Registered thermal governor 'step_wise'
+[    0.201036] registering PCI controller with io_map_base unset
+[    0.213240] registering PCI controller with io_map_base unset
+[    0.264276] PCI host bridge to bus 0000:00
+[    0.268474] pci_bus 0000:00: root bus resource [mem 0x30000000-0x37ffffff]
+[    0.275658] pci_bus 0000:00: root bus resource [io  0x8000000-0x8007fff]
+[    0.282543] pci_bus 0000:00: No busn resource found for root bus, will use [bus 00-ff]
+[    0.292234] pci_bus 0000:00: busn_res: [bus 00-ff] end is updated to 00
+[    0.299487] PCI host bridge to bus 0000:01
+[    0.303794] pci_bus 0000:01: root bus resource [mem 0x38000000-0x3fffffff]
+[    0.310866] pci_bus 0000:01: root bus resource [io  0x8008000-0x800ffff]
+[    0.317834] pci_bus 0000:01: No busn resource found for root bus, will use [bus 01-ff]
+[    0.327331] pci 0000:01:1e.0: [14e4:6358] type 02 class 0x060700
+[    0.334418] pci 0000:01:1e.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+[    0.342708] pci_bus 0000:02: extended config space not accessible
+[    0.349322] pci_bus 0000:02: busn_res: [bus 02-ff] end is updated to 05
+[    0.356153] pci_bus 0000:01: busn_res: [bus 01-ff] end is updated to 05
+[    0.363213] pci 0000:01:1e.0: BAR 10: assigned [mem 0x38000000-0x3fffffff]
+[    0.370304] pci 0000:01:1e.0: BAR 7: assigned [io  0x8008000-0x80080ff]
+[    0.377205] pci 0000:01:1e.0: BAR 8: assigned [io  0x8008400-0x80084ff]
+[    0.384017] pci 0000:01:1e.0: CardBus bridge to [bus 02-05]
+[    0.389813] pci 0000:01:1e.0:   bridge window [io  0x8008000-0x80080ff]
+[    0.396606] pci 0000:01:1e.0:   bridge window [io  0x8008400-0x80084ff]
+[    0.403487] pci 0000:01:1e.0:   bridge window [mem 0x38000000-0x3fffffff]
+[    0.412487] clocksource: Switched to clocksource MIPS
+[    0.423809] NET: Registered PF_INET protocol family
+[    0.429796] IP idents hash table entries: 2048 (order: 2, 16384 bytes, linear)
+[    0.440540] tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 4096 bytes, linear)
+[    0.449388] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    0.457480] TCP established hash table entries: 1024 (order: 0, 4096 bytes, linear)
+[    0.465535] TCP bind hash table entries: 1024 (order: 1, 8192 bytes, linear)
+[    0.472993] TCP: Hash tables configured (established 1024 bind 1024)
+[    0.480269] UDP hash table entries: 256 (order: 1, 8192 bytes, linear)
+[    0.487282] UDP-Lite hash table entries: 256 (order: 1, 8192 bytes, linear)
+[    0.495644] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    0.501639] PCI: CLS 0 bytes, default 16
+[    0.521585] workingset: timestamp_bits=14 max_order=14 bucket_order=0
+[    0.546542] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.552697] jffs2: version 2.2 (NAND) (SUMMARY) (LZMA) (RTIME) (CMODE_PRIORITY) (c) 2001-2006 Red Hat, Inc.
+[    0.567836] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 252)
+[    0.585492] bcm6358-pinctrl fffe0080.pin-controller: registered at mmio (ptrval)
+[    0.596201] fffe0100.serial: ttyS0 at MMIO 0xfffe0100 (irq = 10, base_baud = 1562500) is a bcm63xx_uart
+[    0.606111] printk: console [ttyS0] enabled
+[    0.606111] printk: console [ttyS0] enabled
+[    0.614769] printk: bootconsole [early0] disabled
+[    0.614769] printk: bootconsole [early0] disabled
+[    0.668649] physmap-flash 1e000000.nor: physmap platform flash device: [mem 0x1e000000-0x1fffffff]
+[    0.678400] 1e000000.nor: Found 1 x16 devices at 0x0 in 16-bit bank. Manufacturer ID 0x0000c2 Chip ID 0x00227e
+[    0.688907] Amd/Fujitsu Extended Query Table at 0x0040
+[    0.694271]   Amd/Fujitsu Extended Query version 1.3.
+[    0.699452] number of CFI chips: 1
+[    0.709875] Searching for RedBoot partition table in 1e000000.nor at offset 0xfe0000
+[    0.752753] No RedBoot partition table detected in 1e000000.nor
+[    0.759504] 3 fixed-partitions partitions found on MTD device 1e000000.nor
+[    0.767499] Creating 3 MTD partitions on "1e000000.nor":
+[    0.773099] 0x000000000000-0x000000020000 : "CFE"
+[    0.787258] 0x000000020000-0x000000fe0000 : "linux"
+[    0.796829] parser_imagetag: rootfs: CFE image tag found at 0x0 with version 8, board type DWV-S0
+[    0.806221] parser_imagetag: Partition 0 is kernel offset 100 and length 29ef3c
+[    0.813830] parser_imagetag: Partition 1 is rootfs offset 29f03c and length d20fc4
+[    0.821608] parser_imagetag: Spare partition is offset 560004 and length a5fffc
+[    0.833180] 2 bcm963xx-imagetag partitions found on MTD device linux
+[    0.839735] Creating 2 MTD partitions on "linux":
+[    0.844856] 0x000000000100-0x00000029f03c : "kernel"
+[    0.849950] mtd: partition "kernel" doesn't start on an erase/write block boundary -- force read-only
+[    0.867008] 0x00000029f03c-0x000000fc0000 : "rootfs"
+[    0.872113] mtd: partition "rootfs" doesn't start on an erase/write block boundary -- force read-only
+[    0.885922] mtd: setting mtd3 (rootfs) as root device
+[    0.891152] 1 squashfs-split partitions found on MTD device rootfs
+[    0.897688] 0x000000560000-0x000000fc0000 : "rootfs_data"
+[    0.913824] 0x000000fe0000-0x000001000000 : "nvram"
+[    0.971889] bcm63xx-spi fffe0800.spi: at [mem 0xfffe0800-0xfffe0f0b flags 0x200] (irq 9, FIFOs size 542)
+[    0.983627] SPI driver b53-switch has no spi_device_id for brcm,bcm5325
+[    0.990427] SPI driver b53-switch has no spi_device_id for brcm,bcm53115
+[    0.997466] SPI driver b53-switch has no spi_device_id for brcm,bcm53125
+[    1.004410] SPI driver b53-switch has no spi_device_id for brcm,bcm53128
+[    1.011282] SPI driver b53-switch has no spi_device_id for brcm,bcm5365
+[    1.018165] SPI driver b53-switch has no spi_device_id for brcm,bcm5395
+[    1.025019] SPI driver b53-switch has no spi_device_id for brcm,bcm5397
+[    1.031800] SPI driver b53-switch has no spi_device_id for brcm,bcm5398
+[    1.083469] Broadcom BCM63XX (2) bcm63xx_enet-0:01: attached PHY driver (mii_bus:phy_addr=bcm63xx_enet-0:01, irq=17)
+[    1.113136] b53_common: found switch: BCM5325, rev 0
+[    1.118554] Broadcom B53 (1) bcm63xx_enet-1:00: attached PHY driver (mii_bus:phy_addr=bcm63xx_enet-1:00, irq=POLL)
+[    1.130437] bcm63xx-wdt bcm63xx-wdt:  started, timer margin: 30 sec
+[    1.144870] leds-gpio leds-gpio.0: Skipping unavailable LED gpio 0 ((null))
+[    1.152052] leds-gpio leds-gpio.0: Skipping unavailable LED gpio 0 ((null))
+[    1.159387] leds-gpio leds-gpio.0: Skipping unavailable LED gpio 0 ((null))
+[    1.166640] leds-gpio leds-gpio.0: Skipping unavailable LED gpio 0 ((null))
+[    1.173892] leds-gpio leds-gpio.0: Skipping unavailable LED gpio 0 ((null))
+[    1.186122] NET: Registered PF_INET6 protocol family
+[    1.246901] Segment Routing with IPv6
+[    1.250912] In-situ OAM (IOAM) with IPv6
+[    1.255508] NET: Registered PF_PACKET protocol family
+[    1.260878] bridge: filtering via arp/ip/ip6tables is no longer available by default. Update your scripts to load br_netfilter if you need this.
+[    1.275960] 8021q: 802.1Q VLAN Support v1.8
+[    1.325518] VFS: Mounted root (squashfs filesystem) readonly on device 31:3.
+[    1.351008] Freeing unused kernel image (initmem) memory: 1304K
+[    1.357212] This architecture does not have kernel memory protection.
+[    1.363899] Run /sbin/init as init process
+[    2.441942] init: Console is alive
+[    2.446973] init: - watchdog -
+[    3.485045] kmodloader: loading kernel modules from /etc/modules-boot.d/*
+[    3.636579] usbcore: registered new interface driver usbfs
+[    3.642938] usbcore: registered new interface driver hub
+[    3.648754] usbcore: registered new device driver usb
+[    3.685937] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    3.697548] fsl-ehci: Freescale EHCI Host controller driver
+[    3.711092] ehci-platform: EHCI generic platform driver
+[    3.832560] ehci-platform ehci-platform: EHCI Host Controller
+[    3.838552] ehci-platform ehci-platform: new USB bus registered, assigned bus number 1
+[    3.847546] ehci-platform ehci-platform: irq 18, io mem 0xfffe1300
+[    3.882572] ehci-platform ehci-platform: USB 2.0 started, EHCI 1.00, overcurrent ignored
+[    3.894555] hub 1-0:1.0: USB hub found
+[    3.901571] hub 1-0:1.0: 1 port detected
+[    3.930438] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    3.941246] ohci-platform: OHCI generic platform driver
+[    3.947362] ohci-platform ohci-platform: Generic Platform OHCI controller
+[    3.954572] ohci-platform ohci-platform: new USB bus registered, assigned bus number 2
+[    3.963143] ohci-platform ohci-platform: irq 13, io mem 0xfffe1400
+[    4.040126] hub 2-0:1.0: USB hub found
+[    4.047239] hub 2-0:1.0: 1 port detected
+[    4.057972] kmodloader: done loading kernel modules from /etc/modules-boot.d/*
+[    4.077182] init: - preinit -
+[    6.759978] random: jshn: uninitialized urandom read (4 bytes read)
+[    6.990541] random: jshn: uninitialized urandom read (4 bytes read)
+[    7.104479] random: jshn: uninitialized urandom read (4 bytes read)
+[    7.509019] eth1: link UP - 100/full - flow control off
+[    7.523152] IPv6: ADDRCONF(NETDEV_CHANGE): eth1: link becomes ready
+Press the [f] key and hit [enter] to enter failsafe mode
+Press the [1], [2], [3] or [4] key and hit [enter] to select the debug level
+[   10.139378] mount_root: jffs2 not ready yet, using temporary tmpfs overlay
+[   10.172889] urandom-seed: Seed file not found (/etc/urandom.seed)
+[   10.439375] eth1: link DOWN
+[   10.475175] procd: - early -
+[   10.478922] procd: - watchdog -
+[   11.462743] procd: - watchdog -
+[   11.469939] procd: - ubus -
+[   11.718749] random: ubusd: uninitialized urandom read (4 bytes read)
+[   11.730760] random: ubusd: uninitialized urandom read (4 bytes read)
+[   11.738959] random: ubusd: uninitialized urandom read (4 bytes read)
+[   11.771584] procd: - init -
+Please press Enter to activate this console.
+[   12.933077] random: jshn: uninitialized urandom read (4 bytes read)
+[   12.983597] random: ubusd: uninitialized urandom read (4 bytes read)
+[   12.990985] random: ubus: uninitialized urandom read (4 bytes read)
+[   14.105726] random: jshn: uninitialized urandom read (4 bytes read)
+[   14.460922] kmodloader: loading kernel modules from /etc/modules.d/*
+[   15.096494] PPP generic driver version 2.4.2
+[   15.125073] NET: Registered PF_PPPOX protocol family
+[   15.193553] kmodloader: done loading kernel modules from /etc/modules.d/*
+[   18.763815] urngd: v1.0.2 started.
+[   23.783895] random: crng init done
+[   23.787375] random: 28 urandom warning(s) missed due to ratelimiting
