@@ -24,7 +24,7 @@ All of those boxes have reached their end of life and are basically destined for
 
 Several years ago I stumbled across [the DRG-A226M's page](https://oldwiki.archive.openwrt.org/toh/pirelli/drg_a226m) on the OpenWRT wiki and I decided to try and follow the steps: back then I was still quite green, but somehow I managed to crappily solder some wires to the pads for the serial port and install the OS on the router; I could never get it properly configured though.
 
-A few weeks ago, while I was going through my stuff, the router resurfaced and I decided to see if I could really get it going this time. The [router's page on the modern OpenWRT wiki](https://openwrt.org/toh/pirelli/drg_a226m) is quite outdated but still holds valuable information, and another interesting resource is [this forum thread (:italy:)](https://www.ilpuntotecnico.com/forum/index.php?topic=76469.0).
+A few weeks ago, while I was going through my stuff, the router resurfaced and I decided to see if I could really get it going this time. The [router's page on the modern OpenWRT wiki](https://openwrt.org/toh/pirelli/drg_a226m) is quite outdated but still holds valuable information, and another interesting resource is [this forum thread (heads up: it's in pizza language 🍕🇮🇹)](https://www.ilpuntotecnico.com/forum/index.php?topic=76469.0).
 
 ## The Bootloader
 
@@ -309,7 +309,7 @@ config interface 'lan'
 
 ### LuCI 
 
-The Lua Configuration Interface (LuCI) is a pretty run-of-the-mill web interface that allows easy monitoring and management of your router without accessing the CLI. LuCI is particularly useful as OpenWRT is based on Linux and, to my knowledge, does not have a specific command line configuration tool a' la' Cisco IOS. To my surprise, LuCI was preinstalled and just worked:tm:; the Wiki states that you have to install it from the package manager, but that's probably not been true for a couple years.
+The Lua Configuration Interface (LuCI) is a pretty run-of-the-mill web interface that allows easy monitoring and management of your router without accessing the CLI. LuCI is particularly useful as OpenWRT is based on Linux and, to my knowledge, does not have a specific command line configuration tool a' la' Cisco IOS. To my surprise, LuCI was preinstalled and just worked™️; the Wiki states that you have to install it from the package manager, but that's probably not been true for a couple years.
 
 ### Wireless Networking
 
