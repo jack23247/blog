@@ -371,7 +371,7 @@ Aha! The answer was under my nose all along - by looking at the first chunk, we 
 First mystery solved - now we need to hunt down a driver. Apparently the RT2661T should be supported by the `rt61pci` driver, which is not available anymore:
 
 ```console
-root@pirellone:/etc/config# opkg list | grep rt61
+# opkg list | grep rt61
 rt61-pci-firmware - 20230804-1 - Ralink RT2561 firmware
 ```
 
