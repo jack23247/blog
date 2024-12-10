@@ -9,6 +9,9 @@ https://www.stevekamerman.com/2008/07/freebsd-watch-command-is-not-gnulinux-watc
 
 FBSD 14 boots from Ventoy 1.0.9.7
 
+> [!Note]
+> aha
+
 ### Network Connection
 
 Bootonly -> needs inet 
