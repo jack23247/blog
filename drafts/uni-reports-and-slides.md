@@ -1,25 +1,82 @@
-Having concluded the course of my studies, I decided to gather the most significant reports I've written and presented for my assignments and make them available here in case anyone wants to read them, in an effort to save them from oblivion. Here goes nothing!
+---
+title: "Wrapping up 2024" 
+date: 2025-01-02T13:46:01+0100 ## date +%Y-%m-%dT%H:%M:%S%z
+categories:
+ - misc
+tags:
+ - personal
+---
 
-## Master Thesis
+Happy new year readers! 2025 is upon us and, once again, I've decided to write this conclusive article. Due to more changes in my personal life and the fact that I was rushing to finish my exams and write my thesis, I skipped last year's wrap-up, so I decided to make amends this time.
 
-### *A control system with Watchdogs and Data Logging Capabilities for the USAD vehicle*
+![wrap24](https://raw.githubusercontent.com/jack23247/blog/master/img/wrap24.png)
 
-|[Report in PDF](https://drive.google.com/file/d/10I8FrQWa8zPfe0U2Gc7NCS9DZ_1dAPmt/view?usp=drive_link)|
-|:--|
+## Two-wheeled Freedom
 
-## Bachelor's Degree Final Report
+This year I've decided to try and learn how to ride a motorbike while I'm still kinda young enough -- I've been gifted an old BMW F650 for my graduation, and I've grown to love it, having already racked up more than 7'000 Km with it; I've also spent some time with my dad's Guzzi Quota 1100ES, a different but still likable old girl that's recently surpassed the 100'000 Km mark. In the end I got my A3 license in November and I couldn't be happier! I hope to be able to experience more kinds of bikes in the future.
 
-### *Linux as a Real-Time Operating System. A practical analysis in the Mobile Robotics domain*
+## Current Projects
 
-|[Report in PDF]()|[GitHub Repository]()|
-|:--|:--|
+I'm currently employed as a Research Fellow at my University and I'm officially working on Outdoor and Indoor Navigation platforms for people with impaired mobility under the MUSA project. Basically I've inherited a hastily-made fullstack application 'a'la Google Maps that uses PostgreSQL, PostGIS, and pgRouting to compute the most efficient route from Point A to Point B given a wide number of customization options (Air Quality, Traffic, Mode of Transportation, Cost of Rental, Disablities, etc.); I'm also helping a student develop a similar system for Indoor navigation using location data provided by BLE Beacons.
 
-## Computer Security
+A small summary of what I did/learned so far:
+- That PostgreSQL (and SQL in general) can actually be *fun*! 
+- That Geospatial coordinates are a disaster, thank god for GIS and GeoJSON.
+- How to do semi-serious and reproducible Docker/Podman deployments.
+- How to use `patch`, and how much I hate `osm2pgrouting`.
+- That `git` is nice but it's a pain in the butt to use correctly.
+  - Also, submodules should be straightforward and easy to use but their implementation is terrible.
+- Kanban Boards are great, and GitHub's implementation is very good; I really like the idea of multiple custom views based on Issues.
+- That I actually know how to use Java Spring (to an extent).
+- That the ReactJS programming model exists and is ok once you wrap your head around it.
+  - I think you could achieve the same behavior in a less verbose and overly-complicated way, though...
+  - It's not always clear when `useEffect()` will be called. I'd like an `onRender()` or `onChange()` callback instead. This is probably because I'm used to ImGui.
+- That HTTP calls are not a bad way to program distributed applications.
+- That JavaScript is a funny mess:
+  - I like `async`/`await` but Promises are fscked up! 
+  - `===` `!==` `==` `!=` 
+  - Being able to just use objects whenever and however you want is both a godsend and a curse.
+  - Pop quiz! How do I check if an object is empty? Answers: `!obj`, `obj !== null`, `_.isEmpty(obj)`.
+    - Answer: sometimes they all work, sometimes they don't. IIRC the method provided by Underscore.js actually checks if the object has any properties besides the ones inherited by the superclass and works reliably.
+    - Why do I need Underscore.js to check if an object is empty? Just add `isEmpty()` to the standard library!
+  - Node is nice but `npm` is a dumpster fire.
 
-### *Speculative Execution Side Channel Attacks* 
+In the meantime, I'm brushing up my KiCad skills trying to reverse-engineer the Motor Control Board of the Pioneer P3DX robot we have in our lab, so that we can use it with a modern microcontroller; I'm also hoping to be able to finally write an article on my MSc Thesis' work, but I still haven't gotten around to it due to being generally busy with the aforementioned stuff... Q1 2025 should (hopefully!) change this, though. 
 
-|[Report in PDF](https://drive.google.com/file/d/1Z47g_U02niyB4CP6czmOnGCnCf-BytjX/view?usp=drive_link)|
-|:--|
+## University Work
+
+I don't like disposable work, so I gathered the most significant reports I've written and presented for my assignments and make them available here in case anyone wants to read them, in an effort to make them visible and somewhat useful.
+
+### Master's Thesis - *A control system with Watchdogs and Data Logging Capabilities for the USAD vehicle*
+
+| [Report 🇬🇧](https://drive.google.com/file/d/10I8FrQWa8zPfe0U2Gc7NCS9DZ_1dAPmt/view?usp=drive_link) |
+| :------------------------------------------------------------------------------------------------ |
+
+The work I've done during my Master's revolved around a golf cart called "USAD-1" that is supposed to be a platform for experimenting with autonomous driving algorithms. The problems I faced revolved around updating the computers aboard the vehicle and redesigning the control system, which is homegrown: since the motor controller the vehicle uses[^curtis] has no CAN interface, a system that can simulate the accelerator pedal using a digital potentiometer has been devised. 
+
+Originally, this duty was carried out by the R2P platform, which was developed by a lab in Polytechnic University of Milan; this platform, however, reached EOL and my collegues designed an ad-interim replacement using off-the-shelf components (an STM32 Discovery board and accompaining electronics). My goal was redesigning this board to use more modern components (STM32 NUCLEO F767), while adding several security features such as electromechanical and software interlocks to automatically prevent vehicle operation if faults are detected.
+
+This project is still ongoing, and I hope to ultimately open source both the board's design and the software, in an effort to make it available as a "standard" platform for controlling different kinds of vehicles.
+
+[^curtis]: Which is a variant of the Curtis PMC1244.
+
+### Bachelor's Degree Final Report - *Linux as a Real-Time Operating System. A practical analysis in the Mobile Robotics domain*
+
+| [Report and Slides 🇬🇧](https://github.com/jack23247/lrtos-project/releases/tag/08Giugno2021) | [GitHub Repository](https://github.com/iralabdisco/rt-app) |      |
+| :------------------------------------------------------------------------------------------ | :--------------------------------------------------------- | :--- |
+
+At the end of my BSc I decided to explore the possibility of using Linux-based systems to control a Real-Time application; in hindsight my analysis was somewhat crude but it proved useful and led me to write a simple real-time controller for the Coderbot platform[^libcb] that we've used for teaching the Embedded Systems and Robotics courses. 
+
+[^libcb]: [*libcoderbot*](https://github.com/jack23247/libcoderbot)
+
+I also had to simulate the (STM32-based) Robot using an ESP8266[^otto266] because, due to pesky COVID restrictions, I couldn't physically access our laboratory for a couple months.
+
+[^otto266]: [*otto266*](https://github.com/jack23247/otto266)
+
+### Computer Security - *Speculative Execution Side Channel Attacks* 
+
+| [Report 🇬🇧](https://drive.google.com/file/d/1Z47g_U02niyB4CP6czmOnGCnCf-BytjX/view?usp=drive_link) |
+| :------------------------------------------------------------------------------------------------ |
 
 In recent times there's been much discussion about mitigations of CPU vulnerabilities, with some people stating that disabling them is an incredible security risk and that the performance implications are negligible anyway, while others claim that the opposite is true.
 
@@ -27,41 +84,55 @@ In an effort to understand the impact of disabling mitigations, I decided to inv
 
 Writing this report was really interesting, as it allowed me to tie together very different aspects of computing, and get a better understanding of how the complex speculative dispatch and execution units in modern CPUs work.
 
-## Complex Systems: Models and Simulations
+### Complex Systems: Models and Simulations - *Smoke Propagation Simulator*
 
-### *Smoke Propagation Simulator*
-
-> This report is in Italian
-
-|[Report in PDF](https://drive.google.com/file/d/1Xvg2TD_DcV950o8WzWJLNcER0BaLZMLo/view?usp=sharing)|[GitHub Repository](https://github.com/jack23247/smokey)|
-|:--|:--|
+| [Report 🇮🇹](https://drive.google.com/file/d/1Xvg2TD_DcV950o8WzWJLNcER0BaLZMLo/view?usp=sharing) | [GitHub Repository](https://github.com/jack23247/smokey) |
+| :--------------------------------------------------------------------------------------------- | :------------------------------------------------------- |
 
 For this course I wrote a simulation of smoke propagation in a 2D indoor environment using Cellular Automatas; the program was written in C(++) using the Dear ImGui library for visualization. This work was somewhat rushed, so my approach wasn't all that novel, but the visualization tool turned up nicely and allowed me to test several propagation methods.
 
 The algorithm is based on a pre-existing paper that simulated a 3D environment, and was scaled down to two dimensions. The simulation is neither accurate nor granular enough for accurately reproducing the flow of smoke in a building, but it's incredibly fast and uses very limited resources compared to traditional CFD (Computational Fluidodynamics, i.e. insanely complex mathematics with calculations performed offline in Fortran) and could potentially run on a microcontroller to preemptively trigger alarms and/or other devices along the predicted path of smoke in case of fire in an enclosed environment.
 
-## Parallel Computing
+### Parallel Computing - *The Riken K Computer Architecture*
 
 During this course we'd been given two assignments: hold a seminary on a topic of your choice and analyze one algorithm and implement it in CUDA, MPI and/or OpenMP.
 
-### *The Riken K Computer Architecture*
-
-|[Slides in PDF](https://drive.google.com/file/d/1WI2WEPX3Pq-AXih-BOGG3X3Xzaz4tRRS/view?usp=sharing)|
-|:--|
+| [Slides 🇬🇧](https://drive.google.com/file/d/1WI2WEPX3Pq-AXih-BOGG3X3Xzaz4tRRS/view?usp=sharing) |
+| :--------------------------------------------------------------------------------------------- |
 
 For the seminary, I decided to analyze the architecture of the Riken K Computer, which had once been the fastest supercomputer in TOP500. Alas, the recording of the seminary has never surfaced, but the slides are still available: for the time being, I'll upload them here; I hope I'll be able to recover the recording in the future and turn it into an article for the blog.
 
-### *Performance Analysis of the GFC Compression Algorithm*
+### Parallel Computing - *Performance Analysis of the GFC Compression Algorithm*
 
-|[Report in PDF](https://drive.google.com/file/d/1MhqIzgBVcwvU-P0Fv_EOIeFUGBbHQ-G5/view?usp=sharing)|
-|:--|
+| [Report 🇬🇧](https://drive.google.com/file/d/1MhqIzgBVcwvU-P0Fv_EOIeFUGBbHQ-G5/view?usp=sharing) |
+| :--------------------------------------------------------------------------------------------- |
 
 As for the analysis and implementation assignment, I chose the GFC compression algorithm, which was written explicitly to exploit the data parallelism of GPUs. Since a CUDA implementation was already available, I dissected it and performed an in-depth performance analysis which digressed into an interesting CUDA SASS disassembly analysis. I then wrote a reference implementation of the algorithm in OpenMP, which is obviously not as efficient due to different memory models between CPUs and GPUs.
 
-<!--
-## Analysis of the "CouchDB" database
+### Methods of Scientific Computing - *DCT Toolbox*
 
-Another very interesting report I wrote is an analysis of how the CouchDB non-relational database works internally.
+| [GitHub Repository and Report 🇬🇧](https://github.com/jack23247/dct) |
+| :----------------------------------------------------------------- |
 
-I won't be sharing this work for the time being, as I wasn't the sole author. 
--->
+A very interesting and challenging project that introduced me to CMake and ImGui, amongst other things; the goal of the project was implementing a trivial algorithm for Discrete Cosine Transform (DCT) compression[^dct], then comparing its performance to the reference implementation provided by OpenCV. Turns out I made some questionable implementation choices early on that forced me to come up with creative solutions; I also learned how much I like developing software you can interact with using GUIs.
+
+[^dct]: Which is the mechanism behind JPEG artefacting! 
+
+## Quarterly Book Review
+
+Alas, I've hopelessly fallen behind schedule. I've basically finished Soltis' book, *Inside the AS/400*, and... I kinda hated it; the technical information presented in the book is solid, but the presentation keeps shoving the fact that the AS/400 is the absolute best, most secure, most reliable, and least problematic thing around which, even if it were true, starts to get on your nerves pretty fast. *The Battle of the Schedulers* was very good and it's an interesting read, but it's clear and concise enough as it stands, so I won't be writing a post on it, while *Absolute FreeBSD* is a fun and useful read but I can safely say that the Handbook and manpages cover the same information, while the FreeBSD forums and personal blogs (vermaden's really good) give you the beans. I've also acquired a copy of the WinCE book, but I haven't read it yet; I'm currently re-reading Machiavelli's *Principe*, which fascinates me for several reasons but is also quite hard to read at times. *The Art of War* is also on my to-read list, but I've skimmed through the first chapters and I don't think I can stand the structure.
+
+## Planned Articles
+
+I swear the next time I reinstall UnixWare I'll finish writing the damn article... same thing goes for FreeBSD; both can be currently found in draft form. I'm also planning to detail how to achieve the Ultimate Windows 2000 Experience™️ on a VM, on a laptop, and on period-correct hardware. To be honest, I don't want to plan ahead too much: I like writing for this blog as long as it's casual and occasional, so articles should come naturally as I work on things. Or not.
+
+## Computers and Stuff
+
+I have not acquired much new stuff lately, as I've been focusing on getting spares and other bits and bobs that are getting increasingly harder to find. So far I've managed to get my hands on:
+- A Dell Optiplex G1 tower
+- A beat-up HP Vectra with an interesting National Instruments acquisition card
+- A Dell Precision 360 tower
+- An impressively customized but busted Fujitsu-Siemens CELSIUS workstation
+- A dual processor PowerMac G4 Sawtooth which reeks of cigarettes
+
+Sadly I lost my PowerBook G4 to a nasty humidity outbreak, but I managed to locate another one for spares. One of my Compaq laptops has also given up the ghost, but I suspect it's just due to a power regulator failure. The ThinkPads are fine (luckily!) but the rubbery textured coatings have started to degrade and I'm afraid it's only going to get worse from now on.
