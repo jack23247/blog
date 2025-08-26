@@ -13,7 +13,7 @@ Dear readers: life has been busier than ever. My hobbies have escalated dramatic
 
 <!-- The truth is that I had reached somewhat of a dead end. While I've taken up as many computers and projects as I could, I never felt satisfied with the result. Collecting weird and rare machines is incredibly stressful, as spares are almost non-existent or horribly expensive, and I can't take the pressure anymore (or rather, I see no reason to). I am planning to hold on to most of what I have, in the hope of being able one day to either open a museum or donate everything to someone I trust my stuff with. In the meantime, I have a lot of fun in sourcing components for my less weird machines and rebuilding them with outlandish specs! -->
 
-Recently, however, someone I hold very dear has lent me a book that's been refreshing enough for me to pick up the keyboard once again (so I doubly thank you). This quarter's book is: **When We Cease to Understand the World** by Benjamín Labatut.
+Somehow, I even managed to read something in the meantime. This quarter's book is: **When We Cease to Understand the World** by Benjamín Labatut.
 
 ![Cover (Courtesy of Adelphi)](https://www.adelphi.it/spool/cover__id9571_w240_t1611570934.jpg)
 
